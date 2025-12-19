@@ -77,3 +77,63 @@ const revealOnScroll = () => {
 
 window.addEventListener("load", revealOnScroll);
 window.addEventListener("scroll", revealOnScroll);
+
+/* ================= PORTFOLIO CAROUSEL AUTO ================= */
+document.querySelectorAll(".carousel").forEach(carousel => {
+  const track = carousel.querySelector(".carousel-track");
+  const slides = track.querySelectorAll("img");
+  const prevBtn = carousel.querySelector(".prev");
+  const nextBtn = carousel.querySelector(".next");
+
+  let index = 0;
+  let interval;
+
+  const delay = 5000; // tempo entre slides (ms)
+
+  function updateCarousel(){
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide(){
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide(){
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  function startAuto(){
+    interval = setInterval(nextSlide, delay);
+  }
+
+  function stopAuto(){
+    clearInterval(interval);
+  }
+
+  // Botões
+  nextBtn.addEventListener("click", () => {
+    stopAuto();
+    nextSlide();
+    startAuto();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    stopAuto();
+    prevSlide();
+    startAuto();
+  });
+
+  // Pausa no hover (desktop)
+  carousel.addEventListener("mouseenter", stopAuto);
+  carousel.addEventListener("mouseleave", startAuto);
+
+  // Pausa no toque (mobile)
+  carousel.addEventListener("touchstart", stopAuto);
+  carousel.addEventListener("touchend", startAuto);
+
+  // Inicia automático
+  startAuto();
+});
+
