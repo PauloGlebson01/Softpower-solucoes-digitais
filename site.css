@@ -1,6 +1,6 @@
 /* =============================
    SOFTPOWER – CSS OFICIAL
-   Dark + Light | Mobile First | Premium UI
+   Dark + Light | Premium UI
 ============================= */
 
 /* ================= VARIÁVEIS ================= */
@@ -10,7 +10,7 @@
   --text:#e5e7eb;
   --muted:#9ca3af;
   --primary:#4f46e5;
-  --secondary:#22c55e;
+  --accent:#00ffd5;
   --border:rgba(255,255,255,.08);
 }
 
@@ -39,55 +39,38 @@ body{
   transition:background .3s,color .3s;
 }
 
-/* Header padrão (modo escuro) */
-.top-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(13, 15, 21, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  z-index: 1000;
-  padding: 0 20px;
-  box-sizing: border-box;
+/* ================= HEADER ================= */
+.top-header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(13,15,21,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  z-index:1000;
 }
 
-.top-header .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: var(--text); /* modo escuro */
-  text-align: center;
+body.light .top-header{
+  background:rgba(255,255,255,.95);
 }
 
-.top-header .logo span {
-  color: var(--primary);
+.logo{
+  font-size:1.5rem;
+  font-weight:700;
 }
 
-/* Modo claro */
-body.light .top-header {
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid var(--border);
-}
+.logo span{color:var(--primary)}
 
-body.light .top-header .logo {
-  color: #000; /* texto escuro para destacar no fundo claro */
-}
-
-body.light .top-header .logo span {
-  color: var(--primary); /* mantém destaque do ponto */
-}
-
-/* ================= MENU TOGGLE ================= */
-.menu-toggle{
+/* ================= BOTÕES FIXOS ================= */
+.menu-toggle,
+.theme-toggle{
   position:fixed;
   top:18px;
-  left:20px;
   width:44px;
   height:44px;
   border-radius:14px;
@@ -102,28 +85,13 @@ body.light .top-header .logo span {
   transition:.3s;
 }
 
-.menu-toggle:hover{transform:scale(1.05)}
+.menu-toggle{left:20px}
+.theme-toggle{right:20px;border-radius:50%}
 
-/* ================= THEME TOGGLE ================= */
-.theme-toggle{
-  position:fixed;
-  top:18px;
-  right:20px;
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  background:var(--card);
-  border:1px solid var(--border);
-  color:var(--text);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  z-index:1201;
-  transition:.3s;
+.menu-toggle:hover,
+.theme-toggle:hover{
+  transform:scale(1.05);
 }
-
-.theme-toggle:hover{transform:rotate(15deg)}
 
 /* ================= SIDEBAR ================= */
 .sidebar{
@@ -136,7 +104,7 @@ body.light .top-header .logo span {
   border-right:1px solid var(--border);
   padding:30px 20px;
   transform:translateX(-100%);
-  transition:.4s ease;
+  transition:.4s;
   z-index:1200;
 }
 
@@ -149,8 +117,6 @@ body.light .top-header .logo span {
   text-align:center;
 }
 
-.sidebar-brand span{color:var(--primary)}
-
 .sidebar-nav{
   display:flex;
   flex-direction:column;
@@ -158,15 +124,13 @@ body.light .top-header .logo span {
 }
 
 .sidebar-nav a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  padding:14px 16px;
+  padding:14px;
   border-radius:14px;
   color:var(--text);
   text-decoration:none;
-  font-weight:500;
+  display:flex;
+  gap:12px;
+  justify-content:center;
   transition:.3s;
 }
 
@@ -176,15 +140,14 @@ body.light .top-header .logo span {
 }
 
 .sidebar-nav a.cta{
-  margin-top:20px;
   background:linear-gradient(135deg,var(--primary),#6366f1);
   color:#fff;
 }
 
-/* ================= HERO – CENTER ABSOLUTO ================= */
+/* ================= HERO ================= */
 .hero{
   min-height:100vh;
-  padding:120px 8% 80px;
+  padding:140px 8% 100px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -192,42 +155,31 @@ body.light .top-header .logo span {
 }
 
 .hero-text{
-  max-width:780px;
+  max-width:820px;
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
+  gap:28px; /* espalhamento */
 }
 
 .hero-text h1{
   font-size:3rem;
-  line-height:1.2;
+  line-height:1.25;
 }
 
 .hero-text p{
-  margin:20px 0 32px;
+  max-width:680px;
+  font-size:1.05rem;
+  line-height:1.8;
   color:var(--muted);
-  max-width:620px;
 }
 
-.hero-img{
-  margin-top:40px;
-  max-width:420px;
-}
-
-.hero-img img{
-  width:100%;
-  border-radius:26px;
-  box-shadow:0 30px 80px rgba(0,0,0,.45);
-}
-
-/* ================= BUTTONS ================= */
+/* ================= BOTÕES ================= */
 .btn{
   display:inline-flex;
   align-items:center;
-  justify-content:center;
   gap:10px;
-  padding:14px 30px;
+  padding:14px 32px;
   border-radius:50px;
   background:linear-gradient(135deg,var(--primary),#6366f1);
   color:#fff;
@@ -242,6 +194,11 @@ body.light .top-header .logo span {
   box-shadow:0 25px 60px rgba(79,70,229,.6);
 }
 
+.btn-small{
+  padding:12px 24px;
+  font-size:.9rem;
+}
+
 /* ================= SECTIONS ================= */
 section{
   padding:100px 8%;
@@ -253,10 +210,10 @@ section h2{
   margin-bottom:12px;
 }
 
-section > p{
-  color:var(--muted);
+section p{
   max-width:720px;
   margin:0 auto;
+  color:var(--muted);
 }
 
 /* ================= GRID ================= */
@@ -274,8 +231,7 @@ section > p{
   padding:26px;
   border-radius:22px;
   border:1px solid var(--border);
-  transition:.35s ease;
-  text-align:center;
+  transition:.35s;
 }
 
 .card:hover,
@@ -287,74 +243,41 @@ section > p{
 .card img{
   width:100%;
   border-radius:16px;
-  margin-bottom:14px;
+  margin-bottom:16px;
 }
 
-.servico i{
-  font-size:28px;
-  color:var(--primary);
-  margin-bottom:14px;
+/* ================= SERVIÇOS ================= */
+.service-card h3{
+  font-size:1.2rem;
+  margin:10px 0;
 }
 
-/* ================= PORTFOLIO CAROUSEL ================= */
-.portfolio-card{
-  overflow:hidden;
+.service-desc{
+  font-size:.95rem;
+  line-height:1.6;
+  color:var(--muted);
+  margin-bottom:16px;
 }
 
-.carousel{
-  position:relative;
-  width:100%;
-  border-radius:16px;
-  overflow:hidden;
+.price{
+  display:block;
+  font-size:1.8rem;
+  font-weight:700;
+  color:var(--accent);
+  margin-bottom:20px;
 }
 
-.carousel-track{
-  display:flex;
-  transition:transform .4s ease;
+/* CARD DESTAQUE – MESMO EFEITO */
+.service-card.destaque{
+  border:2px solid var(--accent);
 }
 
-.carousel-track img{
-  width:100%;
-  flex-shrink:0;
-  border-radius:16px;
+.service-card.destaque:hover{
+  transform:translateY(-8px);
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.45),
+    0 0 25px rgba(0,255,213,.35);
 }
-
-/* BOTÕES */
-.carousel-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  border:none;
-  background:rgba(0,0,0,.55);
-  color:#fff;
-  font-size:20px;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  transition:.3s;
-  z-index:10;
-}
-
-.carousel-btn.prev{left:10px}
-.carousel-btn.next{right:10px}
-
-.carousel:hover .carousel-btn{
-  opacity:1;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .carousel-btn{
-    opacity:1;
-    background:rgba(0,0,0,.45);
-  }
-}
-
 
 /* ================= CONTACT ================= */
 .contact{
@@ -363,11 +286,6 @@ section > p{
 
 body.light .contact{
   background:linear-gradient(135deg,#e5e7eb,#f9fafb);
-}
-
-.contact p{
-  margin:14px auto 28px;
-  max-width:600px;
 }
 
 /* ================= FOOTER ================= */
@@ -388,10 +306,6 @@ body.light .footer{
 }
 
 .footer a{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
   color:var(--text);
   text-decoration:none;
 }
@@ -404,19 +318,7 @@ body.light .footer{
 }
 
 /* ================= RESPONSIVO ================= */
-@media (max-width: 900px) {
-  .top-header {
-    height: 60px;
-  }
-
-  .top-header .logo {
-    font-size: 1.2rem; /* reduz o tamanho da logo em telas menores */
-  }
+@media(max-width:768px){
+  .hero-text h1{font-size:2.2rem}
+  section{padding:80px 6%}
 }
-
-@media (max-width: 480px) {
-  .top-header .logo {
-    font-size: 1rem; /* ainda menor para celulares */
-  }
-}
-
