@@ -263,7 +263,7 @@ a.btn-ebook::after {
 .footer {
   margin-top: 18px;
   font-size: 11px;
-  color: #8a8a8a;
+  color: #ffffff;
 }
 
 /* =========================
@@ -325,7 +325,7 @@ body.light .buttons a.secondary {
 }
 
 body.light .footer {
-  color: #ffffff;
+  color: #6b7280;
 }
 
 /* =========================
@@ -333,5 +333,5 @@ body.light .footer {
 ========================= */
 body.dark {
   background: linear-gradient(135deg, #0d0f15, #06070c);
-  color: #ffffff;
+  color: #6b7280;
 }
