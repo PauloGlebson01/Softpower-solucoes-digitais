@@ -1,9 +1,11 @@
 /* ===============================
    SOFTPOWER – SCRIPT OFICIAL
-   Menu | Dark/Light | Scroll Reveal
+   Menu | Dark/Light | Reveal | Carousel | Share Modal
 ================================ */
 
-/* ================= MENU LATERAL ================= */
+/* ==================================================
+   MENU LATERAL
+================================================== */
 const menuToggle = document.getElementById("menuToggle");
 const sidebar = document.getElementById("sidebar");
 
@@ -31,23 +33,25 @@ if (menuToggle && sidebar) {
   });
 }
 
-/* ================= DARK / LIGHT MODE ================= */
-const toggle = document.getElementById("themeToggle");
+/* ==================================================
+   DARK / LIGHT MODE
+================================================== */
+const themeToggle = document.getElementById("themeToggle");
 const savedTheme = localStorage.getItem("theme");
 
-if (toggle) {
-  // aplica tema salvo
+if (themeToggle) {
+  // Aplica tema salvo
   if (savedTheme) {
     document.body.classList.remove("dark", "light");
     document.body.classList.add(savedTheme);
-    toggle.textContent = savedTheme === "dark" ? "🌙" : "☀️";
+    themeToggle.textContent = savedTheme === "dark" ? "🌙" : "☀️";
   } else {
     document.body.classList.add("dark");
-    toggle.textContent = "🌙";
+    themeToggle.textContent = "🌙";
   }
 
-  // clique no botão
-  toggle.addEventListener("click", () => {
+  // Alternar tema
+  themeToggle.addEventListener("click", () => {
     const isDark = document.body.classList.contains("dark");
 
     document.body.classList.toggle("dark", !isDark);
@@ -55,85 +59,139 @@ if (toggle) {
 
     const theme = isDark ? "light" : "dark";
     localStorage.setItem("theme", theme);
-    toggle.textContent = theme === "dark" ? "🌙" : "☀️";
+    themeToggle.textContent = theme === "dark" ? "🌙" : "☀️";
   });
 }
 
-/* ================= SCROLL REVEAL ================= */
+/* ==================================================
+   SCROLL REVEAL
+================================================== */
 const revealElements = document.querySelectorAll(".reveal");
 
-const revealOnScroll = () => {
+function revealOnScroll() {
   const windowHeight = window.innerHeight;
   const revealPoint = 120;
 
   revealElements.forEach(el => {
     const elementTop = el.getBoundingClientRect().top;
-
     if (elementTop < windowHeight - revealPoint) {
       el.classList.add("active");
     }
   });
-};
+}
 
 window.addEventListener("load", revealOnScroll);
 window.addEventListener("scroll", revealOnScroll);
 
-/* ================= PORTFOLIO CAROUSEL AUTO ================= */
+/* ==================================================
+   PORTFOLIO CAROUSEL AUTOMÁTICO
+================================================== */
 document.querySelectorAll(".carousel").forEach(carousel => {
   const track = carousel.querySelector(".carousel-track");
-  const slides = track.querySelectorAll("img");
+  const slides = track?.querySelectorAll("img") || [];
   const prevBtn = carousel.querySelector(".prev");
   const nextBtn = carousel.querySelector(".next");
 
+  if (!track || slides.length === 0) return;
+
   let index = 0;
   let interval;
+  const delay = 5000;
 
-  const delay = 5000; // tempo entre slides (ms)
-
-  function updateCarousel(){
+  function updateCarousel() {
     track.style.transform = `translateX(-${index * 100}%)`;
   }
 
-  function nextSlide(){
+  function nextSlide() {
     index = (index + 1) % slides.length;
     updateCarousel();
   }
 
-  function prevSlide(){
+  function prevSlide() {
     index = (index - 1 + slides.length) % slides.length;
     updateCarousel();
   }
 
-  function startAuto(){
+  function startAuto() {
     interval = setInterval(nextSlide, delay);
   }
 
-  function stopAuto(){
+  function stopAuto() {
     clearInterval(interval);
   }
 
-  // Botões
-  nextBtn.addEventListener("click", () => {
+  nextBtn?.addEventListener("click", () => {
     stopAuto();
     nextSlide();
     startAuto();
   });
 
-  prevBtn.addEventListener("click", () => {
+  prevBtn?.addEventListener("click", () => {
     stopAuto();
     prevSlide();
     startAuto();
   });
 
-  // Pausa no hover (desktop)
   carousel.addEventListener("mouseenter", stopAuto);
   carousel.addEventListener("mouseleave", startAuto);
-
-  // Pausa no toque (mobile)
   carousel.addEventListener("touchstart", stopAuto);
   carousel.addEventListener("touchend", startAuto);
 
-  // Inicia automático
   startAuto();
 });
 
+/* ==================================================
+   COMPARTILHAMENTO – CARTÃO DIGITAL
+================================================== */
+const cardLink = "https://softpower-solucoes-digitais.vercel.app";
+
+const shareBtn = document.getElementById("shareBtn");
+const shareModal = document.getElementById("shareModal");
+const closeShare = document.getElementById("closeShare");
+const copyLinkBtn = document.getElementById("copyLinkBtn");
+const shareLinkBtn = document.getElementById("shareLinkBtn");
+
+// Abrir modal
+shareBtn?.addEventListener("click", () => {
+  shareModal.style.display = "flex";
+});
+
+// Fechar modal
+closeShare?.addEventListener("click", () => {
+  shareModal.style.display = "none";
+});
+
+// Fecha ao clicar fora do conteúdo
+shareModal?.addEventListener("click", (e) => {
+  if (e.target === shareModal) {
+    shareModal.style.display = "none";
+  }
+});
+
+// Copiar link com mensagem personalizada
+copyLinkBtn?.addEventListener("click", () => {
+  const message = `Confira meu cartão digital profissional: ${cardLink}`;
+  
+  navigator.clipboard.writeText(message)
+    .then(() => {
+      alert("Mensagem copiada com sucesso!");
+    })
+    .catch(() => {
+      alert("Erro ao copiar a mensagem.");
+    });
+});
+
+// Compartilhar (Web Share API)
+shareLinkBtn?.addEventListener("click", () => {
+  if (navigator.share) {
+    navigator.share({
+      title: "Cartão Digital Profissional",
+      text: `Confira meu cartão digital profissional:`,
+      url: cardLink
+    });
+  } else {
+    const fallbackMessage = `Confira meu cartão digital profissional: ${cardLink}`;
+    navigator.clipboard.writeText(fallbackMessage);
+    alert("Compartilhamento não suportado.\nO link foi copiado!");
+  }
+});

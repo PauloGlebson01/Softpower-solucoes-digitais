@@ -49,6 +49,7 @@ body {
    CARD
 ========================= */
 .card {
+  position: relative;
   width: 100%;
   max-width: 420px;
   background: rgba(255, 255, 255, 0.03);
@@ -58,10 +59,127 @@ body {
   text-align: center;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
   animation: fadeUp 0.6s ease forwards;
+  overflow: hidden;
 }
 
 /* =========================
-   LOGO COM IMAGEM
+   BOTÃO COMPARTILHAR
+========================= */
+.share-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #008cff, #00c3ff);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 14px rgba(0, 195, 255, 0.6);
+  transition: 0.3s;
+  z-index: 5;
+}
+
+.share-btn:hover {
+  transform: scale(1.06);
+}
+
+/* =========================
+   MODAL COMPARTILHAR
+========================= */
+.share-modal {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 15, 21, 0.96);
+  backdrop-filter: blur(8px);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border-radius: 22px;
+  z-index: 20;
+  animation: fadeUp 0.4s ease forwards;
+}
+
+.share-modal h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.share-action {
+  width: 80%;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #008cff, #00c3ff);
+  transition: 0.3s;
+}
+
+.share-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 140, 255, 0.45);
+}
+
+/* =========================
+   QR CODE COM IMAGEM CENTRAL
+========================= */
+.qr-box {
+  position: relative;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.qr-box img.qr {
+  width: 180px;
+  height: 180px;
+  border-radius: 14px;
+  background: #fff;
+  padding: 6px;
+}
+
+.qr-box img.qr-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+.qr-box p {
+  font-size: 12px;
+  color: #ccc;
+  margin-top: 6px;
+}
+
+/* =========================
+   FECHAR MODAL
+========================= */
+.close-share {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+/* =========================
+   LOGO
 ========================= */
 .logo {
   width: 90px;
@@ -113,7 +231,7 @@ h1 {
   display: flex;
   gap: 8px;
   align-items: center;
-  justify-content: center; /* centraliza horizontalmente */
+  justify-content: center;
 }
 
 .services span {
@@ -121,7 +239,7 @@ h1 {
 }
 
 /* =========================
-   BUTTONS (COM SVG)
+   BUTTONS
 ========================= */
 .buttons {
   display: flex;
@@ -141,40 +259,42 @@ h1 {
   font-size: 14px;
   font-weight: 500;
   color: #ffffff;
-  background: linear-gradient(135deg, #008cff, #00c3ff);
   transition: 0.3s;
 }
 
-/* ÍCONES SVG */
-.buttons a svg {
-  width: 18px;
-  height: 18px;
-  color: currentColor;
-  flex-shrink: 0;
+/* BOTÕES GRADIENTE */
+.buttons a.btn-ebook,
+.buttons a.whatsapp-btn {
+  background: linear-gradient(135deg, #008cff, #00c3ff);
 }
 
-/* BOTÃO WHATSAPP */
 .buttons a.whatsapp-btn {
   background: linear-gradient(135deg, #25D366, #1ebe5d);
-}
-
-.buttons a.whatsapp-btn:hover {
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
 }
 
 /* BOTÕES SECUNDÁRIOS */
 .buttons a.secondary {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
 }
 
+/* HOVER PARA TODOS OS BOTÕES */
 .buttons a:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0, 140, 255, 0.35);
 }
 
+/* SVG NOS BOTÕES */
+.buttons a svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
 /* =========================
-   BOTÃO EBOOK – ANIMADO
+   BOTÃO EBOOK COM LUMINOSO + PULSO
 ========================= */
 a.btn-ebook {
   position: relative;
@@ -184,76 +304,62 @@ a.btn-ebook {
   padding: 12px 18px;
   border-radius: 10px;
   font-weight: 700;
+  text-decoration: none;
+  color: #ffffff;
+  background: linear-gradient(135deg, #008cff, #00c3ff);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
   overflow: hidden;
   animation: ebookPulse 2s infinite;
-  transition: transform 0.3s ease;
 }
 
-/* Ícone */
 a.btn-ebook svg {
   width: 22px;
   height: 22px;
   flex-shrink: 0;
 }
 
-/* Texto */
 a.btn-ebook span {
   white-space: nowrap;
 }
 
-/* Hover */
-a.btn-ebook:hover {
-  transform: scale(1.08);
+a.btn-ebook::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(0, 255, 255, 0.45), transparent 60%);
+  opacity: 0.6;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease;
+  z-index: 0;
+  filter: blur(12px);
+  pointer-events: none;
 }
 
-/* =========================
-   PULSE SUAVE
-========================= */
+a.btn-ebook:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(0, 195, 255, 0.6);
+}
+
+a.btn-ebook:hover::before {
+  transform: rotate(45deg);
+}
+
 @keyframes ebookPulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(0, 140, 255, 0.35);
+    box-shadow: 0 0 8px rgba(0, 195, 255, 0.45);
   }
-  60% {
+  50% {
     transform: scale(1.06);
-    box-shadow: 0 0 0 14px rgba(255, 152, 0, 0);
+    box-shadow: 0 0 20px rgba(0, 195, 255, 0.6);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 152, 0, 0);
-  }
-}
-
-/* =========================
-   BRILHO ANIMADO
-========================= */
-a.btn-ebook::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  pointer-events: none;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.6),
-    transparent
-  );
-  animation: ebookShine 3s infinite;
-}
-
-/* Shine */
-@keyframes ebookShine {
-  0% {
-    left: -100%;
-  }
-  60% {
-    left: 120%;
-  }
-  100% {
-    left: 120%;
+    box-shadow: 0 0 8px rgba(0, 195, 255, 0.45);
   }
 }
 
@@ -270,29 +376,17 @@ a.btn-ebook::after {
    ANIMAÇÕES
 ========================= */
 @keyframes fadeZoom {
-  from {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================
-   LIGHT MODE (MANUAL)
+   LIGHT MODE
 ========================= */
 body.light {
   background: #f4f6fb;
@@ -306,10 +400,6 @@ body.light .card {
 
 body.light .subtitle {
   color: #6b7280;
-}
-
-body.light .services span {
-  color: #2563eb;
 }
 
 body.light .logo {
@@ -329,9 +419,9 @@ body.light .footer {
 }
 
 /* =========================
-   DARK MODE (MANUAL)
+   DARK MODE
 ========================= */
 body.dark {
   background: linear-gradient(135deg, #0d0f15, #06070c);
-  color: #6b7280;
+  color: #ffffff;
 }
