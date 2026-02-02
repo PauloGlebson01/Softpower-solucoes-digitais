@@ -39,13 +39,22 @@
         📲 Compartilhar
       </button>
 
-      <div class="qr-box">
-        <img
-          class="qr"
-          src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://softpower.cards"
-          alt="QR Code do Cartão Digital Profissional">
-        <p>Escaneie o QR Code</p>
-      </div>
+<div class="qr-box">
+  <div class="qr-container">
+    <!-- QR Code gerado via API (link correto) -->
+    <img
+      class="qr"
+      src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://softpower-solucoes-digitais.vercel.app"
+      alt="QR Code do Cartão Digital Profissional">
+
+    <!-- Logo central pequena -->
+    <img class="qr-center" src="./assets/LOGO-SOFTPOWER.png" alt="Logo SoftPower">
+  </div>
+  <p>Escaneie o QR Code</p>
+</div>
+
+
+
 
       <button class="close-share" id="closeShare">
         Fechar
