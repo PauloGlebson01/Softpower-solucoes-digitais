@@ -393,7 +393,7 @@ a.btn-ebook:hover::before {
 ========================= */
 body.light {
   background: #f4f6fb;
-  color: #ffffff;
+  color: #6b7280;
 }
 
 body.light .card {
@@ -402,7 +402,7 @@ body.light .card {
 }
 
 body.light .subtitle {
-  color: #6b7280;
+  color: #ffffff;
 }
 
 body.light .logo {
