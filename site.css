@@ -187,6 +187,7 @@ body.light .top-header{
   text-decoration:none;
   box-shadow:0 20px 40px rgba(79,70,229,.45);
   transition:.3s;
+  margin-top: 10px;
 }
 
 .btn:hover{
@@ -214,6 +215,60 @@ section p{
   max-width:720px;
   margin:0 auto;
   color:var(--muted);
+}
+
+/* ================= SUPORTE TÉCNICO ================= */
+
+/* Wrapper do card de suporte */
+.support-wrapper{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* Garante alinhamento interno do card */
+.service-card.suporte{
+  display:flex;
+  flex-direction:column;
+}
+
+/* Área dos botões */
+.service-card.suporte .card-actions{
+  margin-top:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* Botão outline (Tirar Dúvidas) */
+.btn-outline{
+  background:transparent;
+  border:1px solid var(--primary);
+  color:var(--primary);
+  box-shadow:none;
+}
+
+.btn-outline:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+/* Texto abaixo do card de suporte */
+.support-note{
+  margin-top:18px;
+  font-size:.85rem;
+  color:var(--muted);
+  text-align:center;
+  line-height:1.4;
+  max-width:280px;
+  opacity:.9;
+}
+
+/* Ajuste mobile */
+@media(max-width:768px){
+  .support-note{
+    max-width:320px;
+  }
 }
 
 /* ================= GRID ================= */
@@ -366,33 +421,47 @@ body.light .contact{
   background:linear-gradient(135deg,#e5e7eb,#f9fafb);
 }
 
-/* ================= FOOTER ================= */
-.footer{
-  background:#0b0d12;
-  padding:60px 8% 30px;
+/* ================= FOOTER PROFISSIONAL ================= */
+.footer-pro{
+  margin-top:60px;
+  padding:40px 8% 25px;
+  border-top:1px solid var(--border);
   text-align:center;
 }
 
-body.light .footer{
-  background:#f1f5f9;
-}
-
-.footer-container{
+.footer-sections{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:40px;
+  gap:30px;
+  margin-bottom:25px;
 }
 
-.footer a{
-  color:var(--text);
-  text-decoration:none;
+.footer-box h4{
+  font-size: 1rem;
+  font-weight:600;
+  margin-bottom:10px;
+  color:var(--primary);
 }
 
-.footer-bottom{
-  margin-top:40px;
-  border-top:1px solid var(--border);
-  padding-top:20px;
+.footer-box a,
+.footer-box span{
+  display:block;
+  font-size: 1rem;
   color:var(--muted);
+  text-decoration:none;
+  margin-bottom:6px;
+  transition:.3s;
+}
+
+.footer-box a:hover{
+  color:var(--primary);
+}
+
+.footer-copy{
+  font-size: 1rem;
+  color:var(--muted);
+  opacity:.8;
+  line-height:1.4;
 }
 
 /* ================= RESPONSIVO ================= */
