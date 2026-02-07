@@ -514,7 +514,7 @@ body.light .contact{
    EBOOK
 ========================= */
 
-.ebook-section {
+.ebook-section { 
   padding: 100px 8%;
 }
 
@@ -592,6 +592,23 @@ body.light .contact{
   margin-top: 10px;
 }
 
+/* =========================
+   Checklist de tópicos com destaque
+========================= */
+.ebook-checklist {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+}
+
+.ebook-checklist li {
+  margin-bottom: 10px;
+  color: var(--destaque); /* cor automática conforme o tema */
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+
 /* RESPONSIVO */
 @media (max-width: 900px) {
   .ebook-container {
@@ -615,3 +632,5 @@ body.light .contact{
     margin: 0 auto 20px;
   }
 }
+
+
