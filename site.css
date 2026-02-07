@@ -159,7 +159,7 @@ body.light .top-header{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:28px; /* espalhamento */
+  gap:28px;
 }
 
 .hero-text h1{
@@ -267,7 +267,6 @@ section p{
   margin-bottom:20px;
 }
 
-/* CARD DESTAQUE – MESMO EFEITO */
 .service-card.destaque{
   border:2px solid var(--accent);
 }
@@ -278,6 +277,76 @@ section p{
     0 25px 60px rgba(0,0,0,.45),
     0 0 25px rgba(0,255,213,.35);
 }
+
+/* ================= CARROSSEL DE VÍDEOS ================= */
+.video-carousel{
+  padding:100px 8%;
+}
+
+.carousel-container{
+  position:relative;
+  max-width:1200px;
+  margin:50px auto 0;
+  overflow:hidden;
+}
+
+.carousel-track{
+  display:flex;
+  gap:24px;
+  transition:transform .45s ease;
+}
+
+.video-card{
+  min-width:320px;
+  background:var(--card);
+  padding:14px;
+  border-radius:22px;
+  border:1px solid var(--border);
+  transition:.35s;
+}
+
+.video-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 25px 50px rgba(0,0,0,.4);
+}
+
+.video-card video{
+  width:100%;
+  border-radius:16px;
+}
+
+.video-card span{
+  display:block;
+  margin-top:12px;
+  font-weight:500;
+}
+
+/* Botões do carrossel */
+.carousel-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:10;
+  transition:.3s;
+}
+
+.carousel-btn:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+.carousel-btn.prev{left:10px}
+.carousel-btn.next{right:10px}
 
 /* ================= CONTACT ================= */
 .contact{
@@ -321,11 +390,10 @@ body.light .footer{
 @media(max-width:768px){
   .hero-text h1{font-size:2.2rem}
   section{padding:80px 6%}
+  .video-card{min-width:260px}
 }
 
-/* =============================
-   PREÇO CORTADO (DE / POR)
-============================= */
+/* ================= PREÇO CORTADO ================= */
 .price-old{
   display:block;
   font-size:1rem;
@@ -340,9 +408,6 @@ body.light .footer{
   font-weight:700;
   color:var(--accent);
   margin-bottom:20px;
-}
-
-.price-new{
   animation:pricePulse 1.8s infinite;
 }
 
@@ -350,4 +415,19 @@ body.light .footer{
   0%{transform:scale(1)}
   50%{transform:scale(1.06)}
   100%{transform:scale(1)}
+}
+
+.price {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.price-from {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.65;
+  margin-bottom: 4px;
+  font-weight: 400;
 }

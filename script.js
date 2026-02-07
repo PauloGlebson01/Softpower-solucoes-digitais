@@ -171,7 +171,7 @@ shareModal?.addEventListener("click", (e) => {
 // Copiar link com mensagem personalizada
 copyLinkBtn?.addEventListener("click", () => {
   const message = `Confira meu cartão digital profissional: ${cardLink}`;
-  
+
   navigator.clipboard.writeText(message)
     .then(() => {
       alert("Mensagem copiada com sucesso!");
@@ -194,4 +194,91 @@ shareLinkBtn?.addEventListener("click", () => {
     navigator.clipboard.writeText(fallbackMessage);
     alert("Compartilhamento não suportado.\nO link foi copiado!");
   }
+});
+
+/* ==================================================
+   CARROSSEL DE VÍDEOS – SOFTPOWER (FINAL)
+================================================== */
+document.querySelectorAll(".video-carousel").forEach(carousel => {
+  const track = carousel.querySelector(".carousel-track");
+  const cards = carousel.querySelectorAll(".video-card");
+  const prevBtn = carousel.querySelector(".carousel-btn.prev");
+  const nextBtn = carousel.querySelector(".carousel-btn.next");
+
+  if (!track || cards.length === 0) return;
+
+  let index = 0;
+  let autoPlay;
+  const gap = 24;
+  const delay = 5000;
+
+  function cardWidth() {
+    return cards[0].offsetWidth + gap;
+  }
+
+  function pauseAllVideos() {
+    cards.forEach(card => {
+      const video = card.querySelector("video");
+      if (video) video.pause();
+    });
+  }
+
+  function updateCarousel() {
+    pauseAllVideos();
+    track.style.transform = `translateX(-${index * cardWidth()}px)`;
+  }
+
+  function nextSlide() {
+    index = (index + 1) % cards.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + cards.length) % cards.length;
+    updateCarousel();
+  }
+
+  function startAuto() {
+    autoPlay = setInterval(nextSlide, delay);
+  }
+
+  function stopAuto() {
+    clearInterval(autoPlay);
+  }
+
+  nextBtn?.addEventListener("click", () => {
+    stopAuto();
+    nextSlide();
+    startAuto();
+  });
+
+  prevBtn?.addEventListener("click", () => {
+    stopAuto();
+    prevSlide();
+    startAuto();
+  });
+
+  carousel.addEventListener("mouseenter", stopAuto);
+  carousel.addEventListener("mouseleave", startAuto);
+  carousel.addEventListener("touchstart", stopAuto);
+  carousel.addEventListener("touchend", startAuto);
+
+  // CONTROLE DE VÍDEO INDIVIDUAL
+  cards.forEach(card => {
+    const video = card.querySelector("video");
+    if (!video) return;
+
+    video.muted = true;
+    video.playsInline = true;
+
+    video.addEventListener("click", () => {
+      pauseAllVideos();
+      video.play().catch(() => { });
+      stopAuto();
+    });
+
+    video.addEventListener("ended", startAuto);
+  });
+
+  startAuto();
 });
