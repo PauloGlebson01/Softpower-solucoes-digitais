@@ -610,27 +610,22 @@ body.light .contact{
 
 
 /* RESPONSIVO */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .ebook-container {
-    grid-template-columns: 1fr;
-    text-align: center;
+    grid-template-columns: 1fr; /* uma coluna apenas */
+    gap: 40px;
   }
 
   .ebook-image img {
+    max-width: 100%; /* ocupa largura total do mobile */
+    height: auto;    /* mantém proporção */
     margin: 0 auto;
   }
 
   .ebook-content {
     text-align: center;
   }
-
-  .ebook-actions {
-    justify-content: center;
-  }
-
-  .ebook-desc {
-    margin: 0 auto 20px;
-  }
 }
+
 
 
