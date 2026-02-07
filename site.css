@@ -610,33 +610,27 @@ body.light .contact{
 
 
 /* RESPONSIVO */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .ebook-container {
-    display: flex;         /* muda de grid para flex para mobile */
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
-
-  .ebook-image {
-    width: 100%;           /* container da imagem ocupa toda a largura */
-    display: flex;
-    justify-content: center;
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
   .ebook-image img {
-    width: 100%;           /* imagem ocupa toda a largura do container */
-    max-width: 420px;      /* mantém limite do desktop */
-    height: auto;          /* mantém proporção */
-    border-radius: 20px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    margin: 0 auto;
   }
 
   .ebook-content {
-    width: 100%;           /* conteúdo também ocupa largura total */
     text-align: center;
   }
-}
 
+  .ebook-actions {
+    justify-content: center;
+  }
+
+  .ebook-desc {
+    margin: 0 auto 20px;
+  }
+}
 
 
