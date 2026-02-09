@@ -601,18 +601,26 @@ body.light .contact{
 ========================= */
 @media (max-width: 768px) {
 
+  /* Seção ocupa toda a tela e remove padding */
   .ebook-section {
-    padding: 0; /* remove padding para subir imagem ao topo */
+    padding: 0;           /* remove padding superior */
+    min-height: 100vh;    /* garante que ocupe toda altura da tela */
+    display: flex;
+    flex-direction: column; /* empilha elementos verticalmente */
+    justify-content: flex-start; /* força conteúdo para o topo */
   }
 
+  /* Container */
   .ebook-container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column; /* empilha verticalmente */
     gap: 32px;
     text-align: center;
-    max-width: 100%; /* remove limite de largura */
+    max-width: 100%;
     margin: 0 auto;
   }
 
+  /* Imagem */
   .ebook-image {
     display: flex;
     justify-content: center;
@@ -622,16 +630,18 @@ body.light .contact{
 
   .ebook-image img {
     width: 100%;       /* preenche toda a largura do mobile */
-    max-width: 100%;   /* não limita */
+    max-width: 100%;
     height: auto;
-    border-radius: 0;  /* remove cantos arredondados no mobile */
+    border-radius: 0;  /* remove cantos arredondados */
     object-fit: cover;
   }
 
+  /* Scroll da âncora */
   #ebook-image {
-    scroll-margin-top: 0; /* clique leva imagem para o topo */
+    scroll-margin-top: 0;
   }
 
+  /* Conteúdo */
   .ebook-content h2 {
     font-size: 1.8rem;
   }
@@ -661,7 +671,6 @@ body.light .contact{
     margin-top: 8px;
   }
 }
-
 
 /* =========================
    Checklist de tópicos com destaque
