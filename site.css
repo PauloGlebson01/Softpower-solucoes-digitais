@@ -610,7 +610,7 @@ body.light .contact{
 
 @media (max-width: 768px) {
   .ebook-section {
-    padding: 80px 6%;
+    padding: 0 6%; /* remove o padding-top e bottom, mantém só horizontal */
   }
 
   .ebook-container {
@@ -620,11 +620,13 @@ body.light .contact{
   }
 
   .ebook-image {
+    display: flex;
     justify-content: center;
+    margin-top: 0; /* garante que não haja margem extra empurrando para baixo */
   }
 
   #ebook-image {
-    scroll-margin-top: 12px;
+    scroll-margin-top: 0; /* opcional, para que ao clicar no botão a imagem vá pro topo */
   }
 }
 
