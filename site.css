@@ -541,15 +541,14 @@ body.light .contact{
 
 /* AJUSTE DE SCROLL DA ÂNCORA – EBOOK */
 #ebook-image {
-  scroll-margin-top: 100px; /* desktop */
+  scroll-margin-top: 90px;
 }
 
 @media (max-width: 768px) {
   #ebook-image {
-    scroll-margin-top: 72px; /* mobile */
+    scroll-margin-top: 70px;
   }
 }
-
 
 .ebook-badge {
   display: inline-block;

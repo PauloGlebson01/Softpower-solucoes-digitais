@@ -91,7 +91,7 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   if (!track || slides.length === 0) return;
 
   let index = 0;
-  let interval;
+  let interval = null;
   const delay = 5000;
 
   function updateCarousel() {
@@ -109,11 +109,12 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   }
 
   function startAuto() {
+    stopAuto();
     interval = setInterval(nextSlide, delay);
   }
 
   function stopAuto() {
-    clearInterval(interval);
+    if (interval) clearInterval(interval);
   }
 
   nextBtn?.addEventListener("click", () => {
@@ -131,7 +132,7 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   carousel.addEventListener("mouseenter", stopAuto);
   carousel.addEventListener("mouseleave", startAuto);
   carousel.addEventListener("touchstart", stopAuto);
-  carousel.addEventListener("touchend", stopAuto);
+  carousel.addEventListener("touchend", startAuto);
 
   startAuto();
 });
@@ -193,7 +194,7 @@ document.querySelectorAll(".video-carousel").forEach(carousel => {
   if (!track || cards.length === 0) return;
 
   let index = 0;
-  let autoPlay;
+  let autoPlay = null;
   const gap = 24;
   const delay = 5000;
 
@@ -224,11 +225,12 @@ document.querySelectorAll(".video-carousel").forEach(carousel => {
   }
 
   function startAuto() {
+    stopAuto();
     autoPlay = setInterval(nextSlide, delay);
   }
 
   function stopAuto() {
-    clearInterval(autoPlay);
+    if (autoPlay) clearInterval(autoPlay);
   }
 
   nextBtn?.addEventListener("click", () => {
@@ -246,7 +248,7 @@ document.querySelectorAll(".video-carousel").forEach(carousel => {
   carousel.addEventListener("mouseenter", stopAuto);
   carousel.addEventListener("mouseleave", startAuto);
   carousel.addEventListener("touchstart", stopAuto);
-  carousel.addEventListener("touchend", stopAuto);
+  carousel.addEventListener("touchend", startAuto);
 
   startAuto();
 });
