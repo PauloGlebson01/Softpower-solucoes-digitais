@@ -625,6 +625,7 @@ body.light .contact{
 
   #ebook-image {
     scroll-margin-top: 12px;
+      background-position: center; /* centraliza a imagem */
   }
 }
 
