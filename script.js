@@ -14,7 +14,6 @@ if (menuToggle && sidebar) {
     sidebar.classList.toggle("open");
   });
 
-  // Fecha ao clicar fora
   document.addEventListener("click", (e) => {
     if (
       sidebar.classList.contains("open") &&
@@ -25,7 +24,6 @@ if (menuToggle && sidebar) {
     }
   });
 
-  // Fecha ao clicar em links
   document.querySelectorAll(".sidebar-nav a").forEach(link => {
     link.addEventListener("click", () => {
       sidebar.classList.remove("open");
@@ -40,7 +38,6 @@ const themeToggle = document.getElementById("themeToggle");
 const savedTheme = localStorage.getItem("theme");
 
 if (themeToggle) {
-  // Aplica tema salvo
   if (savedTheme) {
     document.body.classList.remove("dark", "light");
     document.body.classList.add(savedTheme);
@@ -50,7 +47,6 @@ if (themeToggle) {
     themeToggle.textContent = "🌙";
   }
 
-  // Alternar tema
   themeToggle.addEventListener("click", () => {
     const isDark = document.body.classList.contains("dark");
 
@@ -84,7 +80,7 @@ window.addEventListener("load", revealOnScroll);
 window.addEventListener("scroll", revealOnScroll);
 
 /* ==================================================
-   PORTFOLIO CAROUSEL AUTOMÁTICO
+   PORTFOLIO CAROUSEL
 ================================================== */
 document.querySelectorAll(".carousel").forEach(carousel => {
   const track = carousel.querySelector(".carousel-track");
@@ -135,7 +131,7 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   carousel.addEventListener("mouseenter", stopAuto);
   carousel.addEventListener("mouseleave", startAuto);
   carousel.addEventListener("touchstart", stopAuto);
-  carousel.addEventListener("touchend", startAuto);
+  carousel.addEventListener("touchend", stopAuto);
 
   startAuto();
 });
@@ -151,53 +147,42 @@ const closeShare = document.getElementById("closeShare");
 const copyLinkBtn = document.getElementById("copyLinkBtn");
 const shareLinkBtn = document.getElementById("shareLinkBtn");
 
-// Abrir modal
 shareBtn?.addEventListener("click", () => {
   shareModal.style.display = "flex";
 });
 
-// Fechar modal
 closeShare?.addEventListener("click", () => {
   shareModal.style.display = "none";
 });
 
-// Fecha ao clicar fora do conteúdo
 shareModal?.addEventListener("click", (e) => {
   if (e.target === shareModal) {
     shareModal.style.display = "none";
   }
 });
 
-// Copiar link com mensagem personalizada
 copyLinkBtn?.addEventListener("click", () => {
   const message = `Confira meu cartão digital profissional: ${cardLink}`;
-
-  navigator.clipboard.writeText(message)
-    .then(() => {
-      alert("Mensagem copiada com sucesso!");
-    })
-    .catch(() => {
-      alert("Erro ao copiar a mensagem.");
-    });
+  navigator.clipboard.writeText(message).then(() => {
+    alert("Mensagem copiada com sucesso!");
+  });
 });
 
-// Compartilhar (Web Share API)
 shareLinkBtn?.addEventListener("click", () => {
   if (navigator.share) {
     navigator.share({
       title: "Cartão Digital Profissional",
-      text: `Confira meu cartão digital profissional:`,
+      text: "Confira meu cartão digital profissional:",
       url: cardLink
     });
   } else {
-    const fallbackMessage = `Confira meu cartão digital profissional: ${cardLink}`;
-    navigator.clipboard.writeText(fallbackMessage);
-    alert("Compartilhamento não suportado.\nO link foi copiado!");
+    navigator.clipboard.writeText(cardLink);
+    alert("Link copiado!");
   }
 });
 
 /* ==================================================
-   CARROSSEL DE VÍDEOS – SOFTPOWER (FINAL)
+   CARROSSEL DE VÍDEOS
 ================================================== */
 document.querySelectorAll(".video-carousel").forEach(carousel => {
   const track = carousel.querySelector(".carousel-track");
@@ -261,24 +246,7 @@ document.querySelectorAll(".video-carousel").forEach(carousel => {
   carousel.addEventListener("mouseenter", stopAuto);
   carousel.addEventListener("mouseleave", startAuto);
   carousel.addEventListener("touchstart", stopAuto);
-  carousel.addEventListener("touchend", startAuto);
-
-  // CONTROLE DE VÍDEO INDIVIDUAL
-  cards.forEach(card => {
-    const video = card.querySelector("video");
-    if (!video) return;
-
-    video.muted = true;
-    video.playsInline = true;
-
-    video.addEventListener("click", () => {
-      pauseAllVideos();
-      video.play().catch(() => { });
-      stopAuto();
-    });
-
-    video.addEventListener("ended", startAuto);
-  });
+  carousel.addEventListener("touchend", stopAuto);
 
   startAuto();
 });

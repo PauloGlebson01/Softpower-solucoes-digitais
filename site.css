@@ -539,14 +539,17 @@ body.light .contact{
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
 }
 
-/* AJUSTE DE SCROLL DA ÂNCORA */
+/* AJUSTE DE SCROLL DA ÂNCORA – EBOOK */
 #ebook-image {
-  scroll-margin-top: 24px;
+  scroll-margin-top: 100px; /* desktop */
 }
 
-.ebook-content {
-  text-align: left;
+@media (max-width: 768px) {
+  #ebook-image {
+    scroll-margin-top: 72px; /* mobile */
+  }
 }
+
 
 .ebook-badge {
   display: inline-block;
