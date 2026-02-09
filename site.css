@@ -550,23 +550,6 @@ body.light .contact{
   }
 }
 
-/* ===============================
-   EBOOK IMAGE – BACKGROUND
-=============================== */
-#ebook-image {
-  width: 100%;              /* ocupa toda a largura disponível */
-  max-width: 600px;         /* largura máxima opcional */
-  height: 400px;            /* altura desejada */
-  margin: 0 auto;           /* centraliza horizontalmente */
-  background-image: url('./assets/Ebook-Cartao-digital.jpeg'); /* caminho da imagem */
-  background-size: cover;   /* cobre toda a div mantendo proporção */
-  background-position: center; /* centraliza a imagem */
-  background-repeat: no-repeat; /* evita repetição */
-  border-radius: 8px;       /* cantos arredondados, opcional */
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3); /* sombra opcional */
-}
-
-
 .ebook-badge {
   display: inline-block;
   background: linear-gradient(135deg, var(--primary), #6366f1);
