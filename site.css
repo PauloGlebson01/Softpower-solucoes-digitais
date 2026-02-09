@@ -610,22 +610,32 @@ body.light .contact{
 
 @media (max-width: 768px) {
   .ebook-section {
-    padding: 80px 6%;
+    padding: 0; /* remove padding para preencher toda a tela */
   }
 
   .ebook-container {
-    grid-template-columns: 1fr;
+    display: flex;            /* transforma em flex container */
+    flex-direction: column;   /* empilha verticalmente */
+    align-items: center;      /* centraliza horizontalmente */
     gap: 32px;
     text-align: center;
   }
 
   .ebook-image {
-    justify-content: center;
+    width: 100%;              /* ocupa toda a largura disponível */
+    display: flex;
+    justify-content: center;  /* centraliza a imagem dentro do container */
+  }
+
+  .ebook-image img {
+    width: 100%;              /* faz a imagem preencher a largura do mobile */
+    max-width: 100%;          /* garante que não ultrapasse a tela */
+    height: auto;             /* mantém proporção */
+    object-fit: cover;        /* corta bordas se necessário para preencher */
   }
 
   #ebook-image {
     scroll-margin-top: 12px;
-      background-position: center; /* centraliza a imagem */
   }
 }
 
