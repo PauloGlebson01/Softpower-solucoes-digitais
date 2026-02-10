@@ -1,0 +1,287 @@
+/* =========================
+   EBOOK – SOFTPOWER
+========================= */
+
+/* OFFSET PARA HEADER FIXO */
+.ebook-section {
+  padding: 140px 8% 100px;
+  background: transparent;
+}
+
+/* CONTAINER */
+.ebook-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* =========================
+   IMAGEM (CARD PREMIUM)
+========================= */
+.ebook-image {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ebook-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.ebook-image img:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(79, 70, 229, 0.35);
+}
+
+/* ÂNCORA */
+#ebook-image {
+  scroll-margin-top: 90px;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+.ebook-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ebook-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--primary), #6366f1);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  width: fit-content;
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.45);
+}
+
+.ebook-content h2 {
+  font-size: 2.3rem;
+  margin-bottom: 6px;
+}
+
+.ebook-content h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.ebook-desc {
+  color: var(--muted);
+  margin-bottom: 22px;
+  max-width: 600px;
+  line-height: 1.75;
+}
+
+/* =========================
+   CHECKLIST (DESTAQUE)
+========================= */
+.ebook-checklist {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.ebook-checklist li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =========================
+   AÇÕES
+========================= */
+.ebook-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+/* Herda botões oficiais */
+.ebook-actions .btn {
+  margin-top: 0;
+}
+
+/* TEXTO FINAL */
+.ebook-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* =========================
+   MOBILE (LANDING STYLE)
+========================= */
+@media (max-width: 768px) {
+
+  .ebook-section {
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  .ebook-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+
+  /* IMAGEM EM DESTAQUE */
+  .ebook-image {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ebook-image img {
+    max-width: 100%;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  #ebook-image {
+    scroll-margin-top: 0;
+  }
+
+  /* CONTEÚDO */
+  .ebook-content {
+    padding: 0 6%;
+    align-items: center;
+  }
+
+  .ebook-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .ebook-content h3 {
+    font-size: 1rem;
+  }
+
+  .ebook-desc {
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+  }
+
+  .ebook-checklist li {
+    font-size: 0.9rem;
+    justify-content: center;
+  }
+
+  .ebook-actions {
+    justify-content: center;
+  }
+
+  .ebook-badge {
+    margin: 0 auto 14px auto;
+  }
+
+  .ebook-note {
+    margin-top: 8px;
+  }
+}
+
+/* =========================
+   BOTÕES – ESTILO PREMIUM (IGUAL À IMAGEM)
+========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 34px;
+  border-radius: 999px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  border: none;
+  outline: none;
+
+  background: linear-gradient(135deg, #6d6cff, #4f46e5);
+  color: #ffffff;
+
+  box-shadow:
+    0 0 0 rgba(79, 70, 229, 0),
+    0 12px 35px rgba(79, 70, 229, 0.55);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Hover glow */
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow:
+    0 0 25px rgba(109, 108, 255, 0.65),
+    0 18px 45px rgba(79, 70, 229, 0.75);
+}
+
+/* Clique */
+.btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 10px 25px rgba(79, 70, 229, 0.5);
+}
+
+/* =========================
+   BOTÃO OUTLINE (TIRAR DÚVIDAS)
+========================= */
+
+.btn-outline {
+  background: transparent;
+  color: #6d6cff;
+
+  border: 1.8px solid #6d6cff;
+
+  box-shadow:
+    inset 0 0 0 rgba(109, 108, 255, 0),
+    0 0 25px rgba(109, 108, 255, 0.25);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn-outline:hover {
+  background: linear-gradient(135deg, #6d6cff, #4f46e5);
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 30px rgba(109, 108, 255, 0.75),
+    0 18px 45px rgba(79, 70, 229, 0.65);
+}
