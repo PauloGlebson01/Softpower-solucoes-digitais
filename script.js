@@ -1,6 +1,6 @@
 /* ===============================
    SOFTPOWER – SCRIPT OFICIAL
-   Menu | Dark/Light | Reveal | Carousel | Share Modal | Smooth Scroll
+   Menu | Dark/Light | Reveal | Carousel | Share Modal
 ================================ */
 
 /* ==================================================
@@ -78,34 +78,6 @@ function revealOnScroll() {
 
 window.addEventListener("load", revealOnScroll);
 window.addEventListener("scroll", revealOnScroll);
-
-/* ==================================================
-   SCROLL SUAVE PARA ÂNCORAS (EBOOK)
-================================================== */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    const targetId = this.getAttribute("href");
-    if (targetId === "#") return;
-
-    const target = document.querySelector(targetId);
-    if (!target) return;
-
-    e.preventDefault();
-
-    // Fecha menu lateral se estiver aberto
-    sidebar?.classList.remove("open");
-
-    const isMobile = window.innerWidth <= 768;
-    const offset = isMobile ? 0 : 90;
-
-    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth"
-    });
-  });
-});
 
 /* ==================================================
    PORTFOLIO CAROUSEL
