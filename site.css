@@ -511,7 +511,7 @@ body.light .contact{
 }
 
 /* =========================
-   EBOOK
+   EBOOK – DESKTOP
 ========================= */
 .ebook-section { 
   padding: 100px 8%; /* mantém espaçamento no desktop */
@@ -687,6 +687,7 @@ body.light .contact{
   font-size: 0.95rem;
   font-weight: 500;
 }
+
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
