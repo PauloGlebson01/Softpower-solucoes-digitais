@@ -7,12 +7,15 @@
   <title>SoftPower Soluções Digitais | Cartão Digital Profissional</title>
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Favicon-->
+  <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/LOGO-SOFT.png" type="image/x-icon">
 </head>
 
@@ -20,35 +23,63 @@
 
   <div class="card">
 
-    <!-- BOTÃO DARK / LIGHT (ALINHADO AO COMPARTILHAR) -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
+    <!-- BOTÃO DARK / LIGHT -->
+    <button
+      class="theme-toggle"
+      id="themeToggle"
+      aria-label="Alternar tema"
+    >
+      🌙
+    </button>
 
     <!-- BOTÃO COMPARTILHAR -->
-    <button class="share-btn" id="shareBtn" aria-label="Compartilhar cartão">🔗 Compartilhar</button>
+    <button
+      class="share-btn"
+      id="shareBtn"
+      aria-label="Compartilhar cartão"
+    >
+      🔗 Compartilhar
+    </button>
 
     <!-- MODAL DE COMPARTILHAMENTO -->
     <div class="share-modal" id="shareModal">
       <h3>Compartilhar cartão</h3>
 
-      <button class="share-action" id="copyLinkBtn">📋 Copiar link</button>
-      <button class="share-action" id="shareLinkBtn">📲 Compartilhar</button>
+      <button class="share-action" id="copyLinkBtn">
+        📋 Copiar link
+      </button>
+
+      <button class="share-action" id="shareLinkBtn">
+        📲 Compartilhar
+      </button>
 
       <div class="qr-box">
         <div class="qr-container">
-          <img class="qr"
+          <img
+            class="qr"
             src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://softpower-solucoes-digitais.vercel.app"
-            alt="QR Code do Cartão Digital Profissional">
-          <img class="qr-center" src="./assets/LOGO-SOFTPOWER.png" alt="Logo SoftPower">
+            alt="QR Code do Cartão Digital Profissional"
+          >
+          <img
+            class="qr-center"
+            src="./assets/LOGO-SOFTPOWER.png"
+            alt="Logo SoftPower"
+          >
         </div>
         <p>Escaneie o QR Code</p>
       </div>
 
-      <button class="close-share" id="closeShare">Fechar</button>
+      <button class="close-share" id="closeShare">
+        Fechar
+      </button>
     </div>
 
     <!-- LOGO -->
     <div class="logo">
-      <img src="./assets/LOGO-SOFTPOWER.png" alt="SoftPower Soluções Digitais">
+      <img
+        src="./assets/LOGO-SOFTPOWER.png"
+        alt="SoftPower Soluções Digitais"
+      >
     </div>
 
     <!-- TÍTULOS -->
@@ -64,22 +95,46 @@
 
     <!-- BOTÕES -->
     <div class="buttons">
-      <a href="site.html#ebook-image" class="btn-ebook" target="_blank" rel="noopener" aria-label="Ver eBook">
-        <span>📘 Ver eBook</span>
+
+      <!-- BOTÃO EBOOK (DIRETO PARA A ABA CORRETA) -->
+      <a
+        href="site.html#ebook"
+        class="btn-ebook"
+        target="_blank"
+        rel="noopener"
+        aria-label="Ver eBook"
+      >
+        📘 Ver eBook
       </a>
 
-      <a href="https://wa.me/5583986066093?text=Olá!%20Gostaria%20de%20solicitar%20um%20projeto." class="whatsapp-btn"
-        target="_blank" aria-label="Falar no WhatsApp">
-        <span>📱 Solicitar projeto</span>
+      <a
+        href="https://wa.me/5583986066093?text=Olá!%20Gostaria%20de%20solicitar%20um%20projeto."
+        class="whatsapp-btn"
+        target="_blank"
+        rel="noopener"
+        aria-label="Falar no WhatsApp"
+      >
+        📱 Solicitar projeto
       </a>
 
-      <a href="site.html" class="secondary" target="_blank" aria-label="Nossos Serviços">
-        <span>💼 Nossos Serviços</span>
+      <a
+        href="site.html"
+        class="secondary"
+        target="_blank"
+        rel="noopener"
+        aria-label="Nossos Serviços"
+      >
+        💼 Nossos Serviços
       </a>
 
-      <a href="https://instagram.com/softpower.cards" class="secondary" target="_blank"
-        aria-label="Instagram SoftPower">
-        <span>📸 Instagram</span>
+      <a
+        href="https://instagram.com/softpower.cards"
+        class="secondary"
+        target="_blank"
+        rel="noopener"
+        aria-label="Instagram SoftPower"
+      >
+        📸 Instagram
       </a>
     </div>
 
@@ -94,5 +149,4 @@
   <script src="script.js"></script>
 
 </body>
-
 </html>
