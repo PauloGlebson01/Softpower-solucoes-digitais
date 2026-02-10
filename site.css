@@ -722,6 +722,27 @@ body.light .contact{
     justify-content: center; /* centraliza os botões horizontalmente */
   }
 }
+/* =========================
+   SCROLL SUAVE GLOBAL
+========================= */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   AJUSTE DA ÂNCORA (HEADER FIXO)
+========================= */
+#ebook-image {
+  scroll-margin-top: 90px; /* desktop */
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  #ebook-image {
+    scroll-margin-top: 0; /* no mobile a imagem encosta no topo */
+  }
+}
+
 
 
 
