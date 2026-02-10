@@ -49,45 +49,40 @@
 }
 
 /* =========================
-   CONTEÚDO
+   EBOOK - BADGE
 ========================= */
-.ebook-content {
-  display: flex;
-  flex-direction: column;
-}
-
 .ebook-badge {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: linear-gradient(135deg, var(--primary), #6366f1);
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 50px;
-  font-size: 0.8rem;
+  gap: 10px;                 /* + respiro entre ícone e texto */
+
+  padding: 10px 22px;        /* + corpo no badge */
+  margin-bottom: 18px;       /* espaço abaixo (título respira) */
+
+  border-radius: 999px;
+
+  font-size: 0.75rem;
   font-weight: 600;
-  margin-bottom: 14px;
-  width: fit-content;
-  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.45);
-}
+  letter-spacing: 0.4px;
+  text-transform: none;
 
-.ebook-content h2 {
-  font-size: 2.3rem;
-  margin-bottom: 6px;
-}
+  color: #e9ebff;
 
-.ebook-content h3 {
-  font-size: 1.15rem;
-  font-weight: 400;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
+  /* BACK MELHORADO */
+  background:
+    linear-gradient(135deg, #0f172a, #020617),
+    linear-gradient(135deg, #6d6cff, #4f46e5);
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
 
-.ebook-desc {
-  color: var(--muted);
-  margin-bottom: 22px;
-  max-width: 600px;
-  line-height: 1.75;
+  border: 1px solid transparent;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.65),
+    0 0 35px rgba(79, 70, 229, 0.35);
+
+  backdrop-filter: blur(6px);
 }
 
 /* =========================
