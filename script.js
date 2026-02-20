@@ -252,3 +252,40 @@ document.querySelectorAll(".video-carousel").forEach(carousel => {
 
   startAuto();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const filterButtons = document.querySelectorAll(".filtro-btn");
+  const products = document.querySelectorAll(".produto-card");
+
+  function filterProducts(category) {
+
+    products.forEach(product => {
+
+      if (category === "all") {
+        product.classList.add("show");
+      } else if (product.dataset.category === category) {
+        product.classList.add("show");
+      } else {
+        product.classList.remove("show");
+      }
+
+    });
+  }
+
+  // Mostrar todos ao carregar
+  filterProducts("all");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", function () {
+
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      this.classList.add("active");
+
+      const filter = this.dataset.filter;
+      filterProducts(filter);
+
+    });
+  });
+
+});

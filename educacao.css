@@ -1,0 +1,318 @@
+/* =====================================
+   RESET GLOBAL
+===================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =====================================
+   BODY
+===================================== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f6ff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+.edu-header {
+  background: #4f46e5;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.btn-voltar {
+  background: white;
+  color: #4f46e5;
+  padding: 8px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-voltar:hover {
+  background: #ffd93d;
+  color: #333;
+  transform: translateY(-2px);
+}
+
+/* =====================================
+   HERO
+===================================== */
+.edu-hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #4f46e5, #6d5dfc);
+  color: white;
+}
+
+.edu-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.edu-hero p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #ffd93d;
+  color: #333;
+  padding: 14px 35px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255,217,61,0.4);
+}
+
+/* =====================================
+   BENEFÍCIOS
+===================================== */
+.beneficios {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.beneficio {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.beneficio:hover {
+  transform: translateY(-5px);
+}
+
+/* =====================================
+   PRODUTOS
+===================================== */
+.produtos {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.produtos h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+/* =====================================
+   FILTROS
+===================================== */
+.filtros {
+  margin-bottom: 50px;
+}
+
+.filtro-btn {
+  background: white;
+  border: 2px solid #4f46e5;
+  color: #4f46e5;
+  padding: 10px 22px;
+  margin: 6px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.filtro-btn:hover {
+  background: #4f46e5;
+  color: white;
+}
+
+.filtro-btn.active {
+  background: linear-gradient(135deg, #4f46e5, #6d5dfc);
+  color: white;
+  box-shadow: 0 6px 15px rgba(79,70,229,0.3);
+}
+
+/* =====================================
+   GRID FIXO (2 COLUNAS)
+===================================== */
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* =====================================
+   CARD PRODUTO
+===================================== */
+.produto-card {
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  padding: 35px;
+  border-radius: 22px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  transition: 0.3s;
+  display: none;
+  position: relative;
+}
+
+.produto-card.show {
+  display: block;
+}
+
+.produto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.18);
+}
+
+/* =====================================
+   IMAGEM MAIOR SEM CORTAR
+===================================== */
+.produto-card img {
+  width: 170px;          /* aumentamos o tamanho */
+  height: 170px;
+  object-fit: contain;   /* NÃO corta a imagem */
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px;
+  background: #f1f3ff;   /* fundo suave */
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.produto-card:hover img {
+  transform: scale(1.05);
+}
+
+.produto-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.produto-card ul {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.produto-card ul li {
+  margin-bottom: 6px;
+}
+
+/* =====================================
+   SELO FIXO
+===================================== */
+.badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ff4d6d;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* =====================================
+   PREÇO
+===================================== */
+.preco {
+  margin: 15px 0;
+}
+
+.preco .old {
+  display: block;
+  text-decoration: line-through;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.preco .new {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #4f46e5;
+}
+
+/* =====================================
+   BOTÃO COMPRAR
+===================================== */
+.btn-comprar {
+  display: block;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #4f46e5, #6d5dfc);
+  color: white;
+  padding: 14px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn-comprar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(79,70,229,0.4);
+}
+
+/* =====================================
+   CTA FINAL
+===================================== */
+.cta-final {
+  background: #4f46e5;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta-final h2 {
+  margin-bottom: 20px;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+.edu-footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* =====================================
+   RESPONSIVO
+===================================== */
+@media (max-width: 900px) {
+  .produtos-grid {
+    grid-template-columns: 1fr;
+  }
+}
