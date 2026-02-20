@@ -22,16 +22,23 @@ body {
 ===================================== */
 .edu-header {
   background: #4f46e5;
-  padding: 15px 40px;
+  padding: 15px 20px; /* Reduzi um pouco o padding lateral para ganhar espaço no mobile */
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #fff;
+  
+  /* Garante que os itens fiquem sempre lado a lado, mesmo sem espaço */
+  flex-wrap: nowrap; 
 }
 
 .logo {
   font-weight: 700;
   font-size: 1.1rem;
+  
+  /* Impede que o texto "SoftPower Educação" quebre em duas linhas */
+  white-space: nowrap; 
+  margin-right: 10px; /* Margem de segurança para não encostar no botão */
 }
 
 .btn-voltar {
@@ -42,6 +49,10 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
+  
+  /* Essencial para o botão: */
+  white-space: nowrap; /* Mantém o texto do botão em uma linha */
+  flex-shrink: 0;      /* Impede que o botão diminua de tamanho para caber */
 }
 
 .btn-voltar:hover {
@@ -50,6 +61,19 @@ body {
   transform: translateY(-2px);
 }
 
+/* Ajuste fino para telas muito pequenas (ex: iPhone SE) */
+@media (max-width: 380px) {
+  .logo {
+    font-size: 0.95rem; /* Diminui levemente a fonte para não estourar a tela */
+  }
+  .btn-voltar {
+    padding: 6px 15px;
+    font-size: 0.85rem;
+  }
+  .edu-header {
+    padding: 15px 10px;
+  }
+}
 /* =====================================
    HERO
 ===================================== */
@@ -196,7 +220,7 @@ body {
    IMAGEM MAIOR SEM CORTAR
 ===================================== */
 .produto-card img {
-  width: 170px;          /* aumentamos o tamanho */
+  width: 130px;          /* aumentamos o tamanho */
   height: 170px;
   object-fit: contain;   /* NÃO corta a imagem */
   display: block;
