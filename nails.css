@@ -1,0 +1,338 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  background:#0b0b12;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+  padding:100px 0;
+  text-align:center;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: radial-gradient(circle at top left,#ff00aa22,transparent),
+              radial-gradient(circle at bottom right,#00f0ff22,transparent),
+              #0b0b12;
+}
+
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg,#ff00aa33,#00f0ff33);
+  filter:blur(120px);
+  z-index:0;
+}
+
+.hero .container{
+  position:relative;
+  z-index:2;
+}
+
+.hero h1{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.neon{
+  color:#ff00aa;
+  text-shadow:
+    0 0 5px #ff00aa,
+    0 0 15px #ff00aa,
+    0 0 30px #ff00aa;
+}
+
+.hero p{
+  font-size:18px;
+  margin-bottom:30px;
+  color:#ccc;
+}
+
+/* BOTÕES */
+.btn-glow{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:30px;
+  background:#ff00aa;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 0 15px #ff00aa;
+  transition:0.3s;
+}
+
+.btn-glow:hover{
+  box-shadow:0 0 30px #ff00aa,0 0 60px #ff00aa;
+  transform:scale(1.05);
+}
+
+.btn-outline{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:30px;
+  border:2px solid #ff00aa;
+  color:#ff00aa;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.btn-outline:hover{
+  background:#ff00aa;
+  color:#fff;
+}
+
+/* VÍDEO */
+.video-section{
+  padding:120px 0;
+  background:#0d0d16;
+}
+
+.video-subtitle{
+  color:#aaa;
+  margin-bottom:50px;
+}
+
+.video-wrapper{
+  position:relative;
+  max-width:900px;
+  margin:auto;
+}
+
+.video-frame{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  border-radius:20px;
+  padding:20px;
+  position:relative;
+  z-index:2;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s;
+}
+
+.video-frame.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.video-frame video{
+  width:100%;
+  border-radius:15px;
+}
+
+.video-glow{
+  position:absolute;
+  top:-20px;
+  left:-20px;
+  right:-20px;
+  bottom:-20px;
+  background:linear-gradient(45deg,#ff00aa,#00f0ff,#ff00aa);
+  filter:blur(80px);
+  opacity:0.4;
+  z-index:1;
+  animation:glowMove 6s linear infinite;
+  border-radius:30px;
+}
+
+@keyframes glowMove{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+/* BENEFÍCIOS */
+.section-title{
+  font-size:32px;
+  margin-bottom:60px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+}
+
+.card, .plano{
+  background:#111119;
+  padding:40px;
+  border-radius:15px;
+  transition:0.5s;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.card.show, .plano.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card:hover, .plano:hover{
+  box-shadow:0 0 25px #ff00aa55;
+  transform:translateY(-10px);
+}
+
+/* ===================================== */
+/* PLANO ÚNICO - ESTÉTICA PREMIUM */
+/* ===================================== */
+
+.planos-subtitle{
+  color:#bbb;
+  margin-bottom:50px;
+  font-size:16px;
+  text-align:center;
+}
+
+/* Centralização */
+.single-plan-wrapper{
+  display:flex;
+  justify-content:center;
+}
+
+/* Card */
+.plano.unico{
+  max-width:500px;
+  width:100%;
+  position:relative;
+  padding:60px 40px;
+  border-radius:20px;
+  border:2px solid #ff00aa;
+  background:#111118;
+  
+  box-shadow:
+    0 0 25px rgba(255, 0, 170, 0.4),
+    0 0 60px rgba(255, 0, 170, 0.15);
+
+  transition: all 0.4s ease;
+}
+
+/* Hover elegante */
+.plano.unico:hover{
+  transform: translateY(-8px);
+  box-shadow:
+    0 0 35px rgba(255, 0, 170, 0.7),
+    0 0 90px rgba(255, 0, 170, 0.25);
+}
+
+/* Badge */
+.badge-popular{
+  position:absolute;
+  top:-18px;
+  right:25px;
+  background:linear-gradient(90deg,#ff00aa,#ff33bb);
+  padding:8px 18px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:#fff;
+  box-shadow:0 0 20px rgba(255,0,170,0.7);
+}
+
+/* Preço */
+.preco{
+  font-size:38px;
+  margin:25px 0;
+  font-weight:800;
+  color:#ff00aa;
+}
+
+.preco span{
+  font-size:15px;
+  color:#aaa;
+  margin-left:4px;
+}
+
+/* Lista */
+ul{
+  list-style:none;
+  margin:25px 0;
+  padding:0;
+}
+
+ul li{
+  margin:12px 0;
+  color:#e0e0e0;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* Botão grande */
+.btn-big{
+  padding:18px 45px;
+  font-size:16px;
+  font-weight:700;
+  border-radius:10px;
+  margin-top:25px;
+  background:linear-gradient(90deg,#ff00aa,#ff33bb);
+  box-shadow:0 0 25px rgba(255,0,170,0.6);
+  transition:all 0.3s ease;
+}
+
+.btn-big:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 40px rgba(255,0,170,0.9);
+}
+
+/* ======================= */
+/* MOBILE OTIMIZADO */
+/* ======================= */
+
+@media (max-width:768px){
+
+  .plano.unico{
+    padding:40px 25px;
+  }
+
+  .preco{
+    font-size:30px;
+  }
+
+  .btn-big{
+    width:100%;
+    padding:16px;
+  }
+
+}
+
+footer{
+  padding:40px;
+  background:#0a0a10;
+  text-align:center;
+  color:#777;
+}
+
+/* ANIMAÇÕES */
+.fade-in{
+  opacity:0;
+  animation:fade 1s forwards;
+}
+
+.delay{ animation-delay:0.5s; }
+.delay2{ animation-delay:1s; }
+
+@keyframes fade{
+  to{opacity:1;}
+}
+
+@media(max-width:768px){
+  .hero h1{
+    font-size:28px;
+  }
+}

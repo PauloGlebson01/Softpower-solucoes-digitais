@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento | Cartão Digital Profissional</title>
+  <link rel="stylesheet" href="nails.css">
+  <link rel="shortcut icon" href="./assets/LOGO-SOFT.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1 class="fade-in hero-title">
+        Transforme seu Espaço com um<br>
+        <span class="neon">Cartão Digital Profissional</span><br>
+        de Agendamentos
+      </h1>
+      <p class="fade-in delay">
+        Agendamentos automáticos, organização total e imagem profissional.
+      </p>
+      <a href="#planos" class="btn-glow fade-in delay2">
+        Quero Modernizar Meu Atendimento
+      </a>
+    </div>
+  </header>
+
+  <!-- SEÇÃO VÍDEO -->
+  <section class="video-section">
+    <div class="container">
+      <h2 class="section-title">Veja o Sistema em Funcionamento</h2>
+      <p class="video-subtitle">
+        Simples, moderno e profissional. Seu studio com outro nível de tecnologia.
+      </p>
+
+      <div class="video-wrapper">
+        <div class="video-glow"></div>
+        <div class="video-frame">
+          <video controls>
+            <source src="video-demo.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section class="beneficios">
+    <div class="container">
+      <h2 class="section-title">Benefícios Exclusivos</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>⚡ Automação Completa</h3>
+          <p>Clientes agendam sozinhas sem depender de mensagens.</p>
+        </div>
+
+        <div class="card">
+          <h3>📊 Gestão Inteligente</h3>
+          <p>Painel completo com filtros e exportação.</p>
+        </div>
+
+        <div class="card">
+          <h3>💅 Imagem Profissional</h3>
+          <p>Destaque-se da concorrência com tecnologia moderna.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANO ÚNICO -->
+  <section id="planos" class="planos">
+    <div class="container">
+      <h2 class="section-title">Plano Profissional</h2>
+      <p class="planos-subtitle">
+        Tudo que seu studio precisa para crescer com tecnologia e organização.
+      </p>
+
+      <div class="single-plan-wrapper">
+
+        <div class="plano unico destaque">
+          <div class="badge-popular">🔥 Plano principal</div>
+
+          <h3 class="card-title">
+            Cartão Digital de Agendamentos
+            <span>Para Profissionais da Estética</span>
+          </h3>
+
+          <p class="preco">
+            R$ 49,90<span>/mês</span>
+          </p>
+
+          <ul>
+            <li>👨‍💻 Painel Administrativo Completo</li>
+            <li>⚡ Agendamento automático 24h</li>
+            <li>📅 Filtro por Período</li>
+            <li>📊 Exportação para Excel e PDF</li>
+            <li>📲 Confirmação via Painel do Admin</li>
+            <li>🌐 Página personalizada com sua identidade visual</li>
+            <li>⚙️ Suporte técnico especializado</li>
+          </ul>
+
+          <a href="#" class="btn-glow btn-big">
+            Quero Meu Sistema Agora
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Cartão Digital Profissional | Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    const elements = document.querySelectorAll(".card, .plano, .video-frame");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+
+</html>
