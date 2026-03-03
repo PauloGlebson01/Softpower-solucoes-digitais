@@ -302,153 +302,129 @@ section p{
 }
 
 /* ===================================== */
-/* CARD PRINCIPAL - ESTÉTICA SOFTPOWER  */
+/* CARD PRINCIPAL - PADRÃO INTEGRADO     */
 /* ===================================== */
 
-.principal-estetica {
-  position: relative;
-  border: 2px solid #ff00aa !important;
-  border-radius: 18px;
-  padding: 35px 25px;
-  background: #111118 !important;
-  
-  /* REMOVE qualquer efeito herdado */
-  background-image: none !important;
-  box-shadow: 0 0 25px rgba(255, 0, 170, 0.45) !important;
-  
-  transition: all 0.4s ease;
+.principal-estetica{
+  position:relative;
+  background:var(--card);
+  border:2px solid var(--accent);
+  border-radius:22px;
+  padding:35px 25px;
+  transition:.35s;
 }
 
-/* Remove pseudo elementos que podem criar listra */
-.principal-estetica::before,
-.principal-estetica::after {
-  display: none !important;
-  content: none !important;
+/* Glow elegante usando variáveis */
+.principal-estetica:hover{
+  transform:translateY(-8px);
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.45),
+    0 0 35px rgba(0,255,213,.25);
 }
 
-/* Hover rosa premium */
-.principal-estetica:hover {
-  transform: translateY(-6px);
-  border-color: #ff33bb;
-  box-shadow: 
-    0 0 35px rgba(255, 0, 170, 0.8),
-    0 0 80px rgba(255, 0, 170, 0.35);
-}
-
-/* Badge principal */
-.badge-principal {
-  display: inline-block;
-  background: linear-gradient(90deg, #ff00aa, #ff33bb);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 7px 16px;
-  border-radius: 50px;
-  margin-bottom: 18px;
-  letter-spacing: 1px;
-  box-shadow: 0 0 15px rgba(255, 0, 170, 0.6);
+/* Badge */
+.badge-principal{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--primary),#6366f1);
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  padding:7px 16px;
+  border-radius:50px;
+  margin-bottom:18px;
+  letter-spacing:1px;
 }
 
 /* Título */
-.principal-estetica .card-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #ffffff;
+.principal-estetica .card-title{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:12px;
+  color:var(--text);
 }
 
-.principal-estetica .card-title span {
-  display: block;
-  font-size: 15px;
-  font-weight: 500;
-  color: #ff00aa;
-  margin-top: 4px;
+.principal-estetica .card-title span{
+  display:block;
+  font-size:14px;
+  font-weight:500;
+  color:var(--primary);
+  margin-top:4px;
 }
 
 /* Descrição */
-.destaque-desc {
-  font-size: 14px;
-  opacity: 0.9;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  color: #dddddd;
+.destaque-desc{
+  font-size:14px;
+  margin-bottom:20px;
+  line-height:1.6;
+  color:var(--muted);
 }
 
 /* Lista */
-.feature-list {
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 25px;
-  color: #f1f1f1;
+.feature-list{
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:25px;
+  color:var(--text);
 }
 
-/* Preço */
-.price-box {
-  margin-bottom: 20px;
+/* Preço integrado ao sistema */
+.price-box{
+  margin-bottom:20px;
 }
 
-.price-box .price-old {
-  display: block;
-  text-decoration: line-through;
-  opacity: 0.5;
-  font-size: 13px;
-  color: #aaaaaa;
+.price-box .price-old{
+  display:block;
+  font-size:1rem;
+  color:var(--muted);
+  text-decoration:line-through;
+  margin-bottom:6px;
 }
 
-.price-box .price-new {
-  font-size: 28px;
-  font-weight: bold;
-  color: #ff00aa;
+.price-box .price-new{
+  font-size:1.9rem;
+  font-weight:700;
+  color:var(--accent);
 }
 
-.price-period {
-  font-size: 14px;
-  opacity: 0.8;
-  color: #cccccc;
+/* Botão principal padrão SoftPower */
+.principal-estetica .btn-glow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 24px;
+  background:linear-gradient(135deg,var(--primary),#6366f1);
+  color:#fff;
+  font-weight:600;
+  border-radius:50px;
+  text-decoration:none;
+  transition:.3s;
+  box-shadow:0 20px 40px rgba(79,70,229,.45);
 }
 
-/* Botão rosa exclusivo */
-.principal-estetica .btn-glow {
-  display: inline-block;
-  padding: 14px 24px;
-  background: linear-gradient(90deg, #ff00aa, #ff33bb);
-  color: #fff;
-  font-weight: bold;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 0, 170, 0.6);
+.principal-estetica .btn-glow:hover{
+  transform:translateY(-3px);
+  box-shadow:0 25px 60px rgba(79,70,229,.6);
 }
 
-.principal-estetica .btn-glow:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(255, 0, 170, 0.9);
-}
-
-/* Rodapé */
-.card-footer-note {
-  margin-top: 18px;
-  font-size: 12px;
-  opacity: 0.7;
-  text-align: center;
-  color: #bbbbbb;
+/* Nota inferior */
+.card-footer-note{
+  margin-top:18px;
+  font-size:12px;
+  color:var(--muted);
+  text-align:center;
+  opacity:.8;
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
-  .principal-estetica {
-    padding: 25px 18px;
+@media(max-width:768px){
+  .principal-estetica{
+    padding:25px 18px;
   }
 
-  .principal-estetica .card-title {
-    font-size: 18px;
-  }
-
-  .price-box .price-new {
-    font-size: 24px;
+  .principal-estetica .card-title{
+    font-size:18px;
   }
 }
-
 /* ================= SERVIÇOS ================= */
 .service-card h3{
   font-size:1.2rem;
