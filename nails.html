@@ -117,12 +117,129 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-title">Perguntas Frequentes</h2>
+      <p class="faq-subtitle">
+        Tire suas dúvidas sobre o Cartão Digital de Agendamentos.
+      </p>
+
+      <div class="faq-container">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            O que é o Cartão Digital de Agendamentos?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              É um sistema online profissional que permite que suas clientes agendem horários automaticamente,
+              sem depender de mensagens no WhatsApp e/ou Instagram.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Preciso instalar algum aplicativo?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Não. O sistema funciona 100% online e pode ser acessado pelo celular, tablet ou computador.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            O agendamento funciona 24 horas?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Sim. Suas clientes podem agendar a qualquer momento, mesmo fora do seu horário de atendimento.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Consigo confirmar e gerenciar os agendamentos?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Sim. Você terá acesso a um painel administrativo completo para visualizar, confirmar, cancelar e organizar
+              seus horários.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Posso exportar os agendamentos?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Sim. É possível exportar relatórios em Excel e PDF para controle de agendamentos e organização.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            O suporte está incluso?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Sim. Você conta com suporte técnico especializado para auxiliar sempre que precisar.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCO DE GARANTIA -->
+  <section class="garantia">
+    <div class="container">
+      <div class="garantia-box">
+        <div class="garantia-icon">🛡️</div>
+        <h2>Teste Sem Risco</h2>
+        <p>
+          Comece hoje mesmo e valide o sistema no seu próprio studio.
+          Você terá tempo para testar a automação, organizar seus agendamentos e sentir a diferença na sua rotina.
+          Se por qualquer motivo decidir que não é para você, basta solicitar o cancelamento dentro do período vigente.
+          Simples, transparente e seguro.
+        </p>
+        <a href="#planos" class="btn-glow btn-big">
+          Quero Começar Com Segurança
+        </a>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>© Cartão Digital de Agendamentos Para Profissionais da Estética<br>
-       | Todos os direitos reservados</p>
+    <p>© 2026 Cartão Digital de Agendamentos Para Profissionais da Estética<br>
+      | Todos os direitos reservados</p>
   </footer>
 
   <script>
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+      const question = item.querySelector(".faq-question");
+      question.addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });
+
     const elements = document.querySelectorAll(".card, .plano, .video-frame");
 
     const observer = new IntersectionObserver(entries => {
