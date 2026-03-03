@@ -51,11 +51,11 @@ body{
 }
 
 .neon{
-  color:#0d0f15;
+  color:#00ffd5;
   text-shadow:
     0 0 5px #4f46e5,
-    0 0 15px #4f46e5,
-    0 0 30px #0d0f15;
+    0 0 15px #00ffd5,
+    0 0 30px #00ffd5;
 }
 
 .hero p{
