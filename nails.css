@@ -97,7 +97,10 @@ body{
   color:#fff;
 }
 
+/* ============================= */
 /* VÍDEO */
+/* ============================= */
+
 .video-section{
   padding:120px 0;
   background:#111119;
@@ -110,7 +113,7 @@ body{
 
 .video-wrapper{
   position:relative;
-  max-width:900px;
+  max-width:750px; /* 🔥 MAIS COMPACTO */
   margin:auto;
 }
 
@@ -118,12 +121,12 @@ body{
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(15px);
   border-radius:20px;
-  padding:20px;
+  padding:18px;
   position:relative;
   z-index:2;
   opacity:0;
   transform:translateY(40px);
-  transition:0.6s;
+  transition:0.6s ease;
 }
 
 .video-frame.show{
@@ -131,20 +134,27 @@ body{
   transform:translateY(0);
 }
 
+/* 🎬 TAMANHO IDEAL */
 .video-frame video{
   width:100%;
+  aspect-ratio:16/9;
+  max-height:380px;
+  object-fit:contain; /* 🔥 não corta mais a imagem */
+  background:#0b0f1a; /* fundo escuro elegante */
   border-radius:15px;
+  display:block;
 }
 
+/* ✨ GLOW */
 .video-glow{
   position:absolute;
-  top:-20px;
-  left:-20px;
-  right:-20px;
-  bottom:-20px;
+  top:-15px;
+  left:-15px;
+  right:-15px;
+  bottom:-15px;
   background:linear-gradient(45deg,#4f46e5,#00ffd5,#4f46e5);
-  filter:blur(80px);
-  opacity:0.4;
+  filter:blur(70px);
+  opacity:0.35;
   z-index:1;
   animation:glowMove 6s linear infinite;
   border-radius:30px;
@@ -153,6 +163,23 @@ body{
 @keyframes glowMove{
   0%{transform:rotate(0deg);}
   100%{transform:rotate(360deg);}
+}
+
+/* 📱 MOBILE */
+@media (max-width:768px){
+
+  .video-section{
+    padding:80px 0;
+  }
+
+  .video-wrapper{
+    max-width:95%;
+  }
+
+  .video-frame video{
+    max-height:450px;
+  }
+
 }
 
 /* BENEFÍCIOS */
