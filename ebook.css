@@ -285,6 +285,30 @@ section{
   font-size:.9rem;
 }
 
+.btn-afiliado-large {
+    display: inline-block;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #ff9800, #ffb300);
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    box-shadow: 0 6px 18px rgba(255, 152, 0, 0.3);
+}
+
+.btn-afiliado-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 152, 0, 0.5);
+}
+
+.affiliate-call {
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
 /* FAQ */
 
 .faq-section{
