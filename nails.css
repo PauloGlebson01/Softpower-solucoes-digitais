@@ -414,6 +414,40 @@ ul li{
   font-size: 15px;
 }
 
+/* BOX DE COMISSÃO */
+.comissao-box {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: rgba(0, 200, 83, 0.1);
+    border: 1px solid #00c853;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #00c853;
+    text-align: center;
+}
+
+/* BOTÃO AFILIADO */
+.btn-afiliado-produto {
+    display: block;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #ff9800, #ffb300);
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.btn-afiliado-produto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.5);
+}
+
 footer{
   padding:40px;
   background:#111119;
