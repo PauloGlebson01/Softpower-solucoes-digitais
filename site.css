@@ -406,6 +406,25 @@ section p{
   box-shadow:0 25px 60px rgba(79,70,229,.6);
 }
 
+.btn-afiliado {
+    display: block;
+    background: linear-gradient(135deg, #00c853, #00e676);
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 200, 83, 0.3);
+}
+
+.btn-afiliado:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 200, 83, 0.5);
+}
+
 /* Nota inferior */
 .card-footer-note{
   margin-top:18px;
