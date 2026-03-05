@@ -100,8 +100,7 @@ body{
 /* ============================= */
 /* VÍDEO */
 /* ============================= */
-
-.video-section{
+.video-section{ 
   padding:120px 0;
   background:#111119;
 }
@@ -113,7 +112,7 @@ body{
 
 .video-wrapper{
   position:relative;
-  max-width:750px; /* 🔥 MAIS COMPACTO */
+  max-width:750px;
   margin:auto;
 }
 
@@ -134,13 +133,15 @@ body{
   transform:translateY(0);
 }
 
-/* 🎬 TAMANHO IDEAL */
-.video-frame video{
+/* 🎬 TAMANHO PERFEITO PARA VÍDEO E CAPA */
+.video-frame video,
+.video-frame img{
   width:100%;
+  height:auto;
+  max-height:420px; /* ligeiramente maior para melhor visual */
   aspect-ratio:16/9;
-  max-height:380px;
-  object-fit:contain; /* 🔥 não corta mais a imagem */
-  background:#0b0f1a; /* fundo escuro elegante */
+  object-fit:contain; /* NÃO corta nada */
+  background:#0b0f1a;
   border-radius:15px;
   display:block;
 }
