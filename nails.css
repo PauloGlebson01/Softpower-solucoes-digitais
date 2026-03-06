@@ -307,6 +307,19 @@ ul li{
   box-shadow:0 0 40px rgba(79,70,229,0.9);
 }
 
+.cta-subtext{
+  font-size: 13px;
+  color: #9ca3af;
+  margin-top: 8px;
+}
+
+.cta-subtext{
+  font-size: 12px;
+  color: #a1a1aa;
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
 /* PLAN IMAGE (mantido) */
 
 .plan-image{
