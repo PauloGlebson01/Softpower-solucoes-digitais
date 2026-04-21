@@ -135,7 +135,6 @@ body{
   transform:translateY(0);
 }
 
-/* 🎬 TAMANHO PERFEITO PARA VÍDEO E CAPA */
 .video-frame video,
 .video-frame img{
   width:100%;
@@ -148,7 +147,7 @@ body{
   display:block;
 }
 
-/* ✨ GLOW */
+/* GLOW */
 .video-glow{
   position:absolute;
   top:-15px;
@@ -169,21 +168,20 @@ body{
   100%{transform:rotate(360deg);}
 }
 
-/* 📱 MOBILE */
+/* MOBILE */
 @media (max-width:768px){
-
   .video-section{
     padding:80px 0;
   }
-
   .video-wrapper{
     max-width:95%;
   }
-
   .video-frame video{
     max-height:450px;
   }
-
+  .hero h1{
+    font-size:28px;
+  }
 }
 
 /* BENEFÍCIOS */
@@ -218,7 +216,6 @@ body{
 }
 
 /* PLANO ÚNICO */
-
 .planos-subtitle{
   color:#9ca3af;
   margin-bottom:50px;
@@ -311,19 +308,11 @@ ul li{
 }
 
 .cta-subtext{
-  font-size: 13px;
-  color: #9ca3af;
-  margin-top: 8px;
+  font-size:12px;
+  color:#a1a1aa;
+  margin-top:6px;
+  opacity:0.9;
 }
-
-.cta-subtext{
-  font-size: 12px;
-  color: #a1a1aa;
-  margin-top: 6px;
-  opacity: 0.9;
-}
-
-/* PLAN IMAGE (mantido) */
 
 .plan-image{
   display:flex;
@@ -340,156 +329,141 @@ ul li{
   box-shadow:0 0 30px rgba(79,70,229,0.25);
 }
 
-/* FAQ PREMIUM */
-
-.premium-faq {
-  padding: 100px 0;
-  background: linear-gradient(180deg, #111119, #0d0f15);
+/* FAQ */
+.faq-subtitle{
+  text-align:center;
+  color:#9ca3af;
+  margin-bottom:50px;
 }
 
-.neon-title {
-  text-align: center;
-  color: #fff;
-  text-shadow: 0 0 10px #4f46e5,
-               0 0 20px #4f46e5,
-               0 0 40px #4f46e5;
+.faq-container{
+  max-width:800px;
+  margin:0 auto;
 }
 
-.faq-subtitle {
-  text-align: center;
-  color: #9ca3af;
-  margin-bottom: 50px;
+.faq-item{
+  background:#151823;
+  margin-bottom:20px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(79,70,229,0.2);
+  transition:0.4s ease;
 }
 
-.faq-container {
-  max-width: 800px;
-  margin: 0 auto;
+.faq-item.active{
+  box-shadow:0 0 15px rgba(79,70,229,0.4);
+  border:1px solid #4f46e5;
 }
 
-.faq-item {
-  background: #151823;
-  margin-bottom: 20px;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(79,70,229,0.2);
-  transition: 0.4s ease;
+.faq-question{
+  width:100%;
+  background:none;
+  border:none;
+  padding:20px;
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.faq-item.active {
-  box-shadow: 0 0 15px rgba(79,70,229,0.4);
-  border: 1px solid #4f46e5;
+.faq-question .icon{
+  font-size:22px;
+  transition:0.4s ease;
+  color:#4f46e5;
 }
 
-.faq-question {
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 20px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.faq-item.active .icon{
+  transform:rotate(45deg);
+  text-shadow:0 0 10px #4f46e5;
 }
 
-.faq-question .icon {
-  font-size: 22px;
-  transition: 0.4s ease;
-  color: #4f46e5;
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.5s ease, padding 0.3s ease;
+  padding:0 20px;
 }
 
-.faq-item.active .icon {
-  transform: rotate(45deg);
-  text-shadow: 0 0 10px #4f46e5;
+.faq-item.active .faq-answer{
+  max-height:200px;
+  padding-bottom:20px;
 }
 
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease, padding 0.3s ease;
-  padding: 0 20px;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 200px;
-  padding-bottom: 20px;
-}
-
-.faq-answer p {
-  color: #9ca3af;
-  font-size: 14px;
-  line-height: 1.6;
+.faq-answer p{
+  color:#9ca3af;
+  font-size:14px;
+  line-height:1.6;
 }
 
 /* GARANTIA */
-
-.garantia {
-  padding: 80px 0;
-  background: #0d0f15;
-  text-align: center;
+.garantia{
+  padding:80px 0;
+  background:#0d0f15;
+  text-align:center;
 }
 
-.garantia-box {
-  background: #151823;
-  padding: 50px 30px;
-  border-radius: 18px;
-  border: 1px solid rgba(79,70,229,0.2);
-  box-shadow: 0 0 20px rgba(79,70,229,0.15);
-  max-width: 700px;
-  margin: 0 auto;
+.garantia-box{
+  background:#151823;
+  padding:50px 30px;
+  border-radius:18px;
+  border:1px solid rgba(79,70,229,0.2);
+  box-shadow:0 0 20px rgba(79,70,229,0.15);
+  max-width:700px;
+  margin:0 auto;
 }
 
-.garantia-icon {
-  font-size: 40px;
-  margin-bottom: 15px;
+.garantia-icon{
+  font-size:40px;
+  margin-bottom:15px;
 }
 
-.garantia-box h2 {
-  color: #fff;
-  margin-bottom: 15px;
-  text-shadow: 0 0 10px #4f46e5;
+.garantia-box h2{
+  color:#fff;
+  margin-bottom:15px;
+  text-shadow:0 0 10px #4f46e5;
 }
 
-.garantia-box p {
-  color: #9ca3af;
-  margin-bottom: 30px;
-  font-size: 15px;
+.garantia-box p{
+  color:#9ca3af;
+  margin-bottom:30px;
+  font-size:15px;
 }
 
-/* BOX DE COMISSÃO */
-.comissao-box {
-    margin-top: 12px;
-    padding: 8px 12px;
-    background: rgba(0, 200, 83, 0.1);
-    border: 1px solid #00c853;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #00c853;
-    text-align: center;
+/* COMISSÃO */
+.comissao-box{
+  margin-top:12px;
+  padding:8px 12px;
+  background:rgba(0,200,83,0.1);
+  border:1px solid #00c853;
+  border-radius:6px;
+  font-size:14px;
+  font-weight:600;
+  color:#00c853;
+  text-align:center;
 }
 
 /* BOTÃO AFILIADO */
-.btn-afiliado-produto {
-    display: block;
-    margin-top: 10px;
-    background: linear-gradient(135deg, #ff9800, #ffb300);
-    color: #fff;
-    font-weight: 700;
-    padding: 12px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    text-align: center;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
-    letter-spacing: 0.5px;
+.btn-afiliado-produto{
+  display:block;
+  margin-top:10px;
+  background:linear-gradient(135deg,#ff9800,#ffb300);
+  color:#fff;
+  font-weight:700;
+  padding:12px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  text-align:center;
+  transition:0.3s ease;
+  box-shadow:0 4px 12px rgba(255,152,0,0.3);
+  letter-spacing:0.5px;
 }
 
-.btn-afiliado-produto:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.5);
+.btn-afiliado-produto:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(255,152,0,0.5);
 }
 
 footer{
@@ -500,7 +474,6 @@ footer{
 }
 
 /* ANIMAÇÕES */
-
 .fade-in{
   opacity:0;
   animation:fade 1s forwards;
@@ -513,42 +486,26 @@ footer{
   to{opacity:1;}
 }
 
-@media(max-width:768px){
-  .hero h1{
-    font-size:28px;
-  }
+.taxa-adesao{
+  font-size:0.85rem;
+  color:#10b981;
+  margin-top:-8px;
+  margin-bottom:16px;
+  font-weight:500;
+  text-align:center;
 }
 
-.taxa-adesao {
-  font-size: 0.85rem;
-  color: #10b981;
-  margin-top: -8px;
-  margin-bottom: 16px;
-  font-weight: 500;
-  text-align: center;
+/* CORREÇÃO VÍDEOS MOBILE */
+video{
+  pointer-events:auto !important;
+  -webkit-tap-highlight-color:transparent;
+  cursor:pointer;
 }
 
-/* Versão destacada (opcional) */
-.taxa-adesao.destaque {
-  background: rgba(16, 185, 129, 0.1);
-  padding: 6px 12px;
-  border-radius: 20px;
-  display: inline-block;
-  margin: 0 auto 16px;
-  width: fit-content;
+.video-frame{
+  pointer-events:auto !important;
 }
 
-/* CORREÇÃO PARA VÍDEO NO MOBILE */
-video {
-  pointer-events: auto !important;
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
-}
-
-.video-frame {
-  pointer-events: auto !important;
-}
-
-.video-glow {
-  pointer-events: none !important;
+.video-glow{
+  pointer-events:none !important;
 }

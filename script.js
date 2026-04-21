@@ -1,6 +1,6 @@
 /* ===============================
    SOFTPOWER – SCRIPT OFICIAL
-   Menu | Dark/Light | Reveal | Carousel | Share Modal | Video Fix
+   Menu | Dark/Light | Reveal | Carousel | Share Modal
 ================================ */
 
 /* ==================================================
@@ -80,7 +80,7 @@ window.addEventListener("load", revealOnScroll);
 window.addEventListener("scroll", revealOnScroll);
 
 /* ==================================================
-   PORTFOLIO CAROUSEL
+   PORTFOLIO CAROUSEL (IMAGENS)
 ================================================== */
 document.querySelectorAll(".carousel").forEach(carousel => {
   const track = carousel.querySelector(".carousel-track");
@@ -183,7 +183,7 @@ shareLinkBtn?.addEventListener("click", () => {
 });
 
 /* ==================================================
-   CARROSSEL DE VÍDEOS - CORRIGIDO PARA MOBILE
+   CARROSSEL DE VÍDEOS - SEM INTERFERÊNCIA
 ================================================== */
 document.querySelectorAll(".video-carousel").forEach(carousel => {
   const track = carousel.querySelector(".carousel-track");
@@ -198,22 +198,11 @@ document.querySelectorAll(".video-carousel").forEach(carousel => {
   const gap = 24;
   const delay = 5000;
 
-  // CORREÇÃO: Função melhorada para pausar vídeos
-  function pauseAllVideos() {
-    cards.forEach(card => {
-      const video = card.querySelector("video");
-      if (video && !video.paused) {
-        video.pause();
-      }
-    });
-  }
-
   function cardWidth() {
     return cards[0].offsetWidth + gap;
   }
 
   function updateCarousel() {
-    pauseAllVideos();
     track.style.transform = `translateX(-${index * cardWidth()}px)`;
   }
 
@@ -255,95 +244,40 @@ document.querySelectorAll(".video-carousel").forEach(carousel => {
 
   startAuto();
   
-  // CORREÇÃO: Ajusta carrossel quando a janela é redimensionada
   window.addEventListener("resize", () => {
     updateCarousel();
   });
 });
 
 /* ==================================================
-   CORREÇÃO PARA VÍDEOS NO MOBILE
-   Garante que todos os vídeos sejam reproduzíveis
+   FILTROS DE PRODUTOS
 ================================================== */
-function fixMobileVideos() {
-  const allVideos = document.querySelectorAll('video');
-  
-  allVideos.forEach(video => {
-    // Garante atributos essenciais para mobile
-    video.setAttribute('playsinline', 'true');
-    video.setAttribute('webkit-playsinline', 'true');
-    video.controls = true;
-    
-    // Remove qualquer atributo autoplay problemático
-    video.removeAttribute('autoplay');
-    
-    // Garante que o elemento seja clicável
-    video.style.pointerEvents = 'auto';
-    video.style.cursor = 'pointer';
-    
-    // Remove event listeners conflitantes (clona e substitui)
-    const newVideo = video.cloneNode(true);
-    if (video.parentNode) {
-      video.parentNode.replaceChild(newVideo, video);
-    }
-  });
-}
-
-// Executa a correção quando o DOM carregar
 document.addEventListener("DOMContentLoaded", function () {
-  fixMobileVideos();
-  
-  /* ==================================================
-     FILTROS DE PRODUTOS (se existirem)
-  ================================================== */
   const filterButtons = document.querySelectorAll(".filtro-btn");
   const products = document.querySelectorAll(".produto-card");
 
-  function filterProducts(category) {
-    products.forEach(product => {
-      if (category === "all") {
-        product.classList.add("show");
-      } else if (product.dataset.category === category) {
-        product.classList.add("show");
-      } else {
-        product.classList.remove("show");
-      }
-    });
-  }
+  if (filterButtons.length > 0 && products.length > 0) {
+    function filterProducts(category) {
+      products.forEach(product => {
+        if (category === "all") {
+          product.classList.add("show");
+        } else if (product.dataset.category === category) {
+          product.classList.add("show");
+        } else {
+          product.classList.remove("show");
+        }
+      });
+    }
 
-  // Mostrar todos ao carregar
-  if (products.length > 0) {
     filterProducts("all");
-  }
 
-  filterButtons.forEach(button => {
-    button.addEventListener("click", function () {
-      filterButtons.forEach(btn => btn.classList.remove("active"));
-      this.classList.add("active");
-
-      const filter = this.dataset.filter;
-      filterProducts(filter);
+    filterButtons.forEach(button => {
+      button.addEventListener("click", function () {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+        const filter = this.dataset.filter;
+        filterProducts(filter);
+      });
     });
-  });
-});
-
-/* ==================================================
-   CORREÇÃO ADICIONAL: Garante que vídeos do nails.html
-   também funcionem corretamente
-================================================== */
-// Verifica se há um vídeo específico do SOFTCLICK
-const softclickVideo = document.getElementById('demoVideo');
-if (softclickVideo) {
-  softclickVideo.setAttribute('playsinline', 'true');
-  softclickVideo.setAttribute('webkit-playsinline', 'true');
-  softclickVideo.controls = true;
-  softclickVideo.style.pointerEvents = 'auto';
-  softclickVideo.style.cursor = 'pointer';
-  softclickVideo.removeAttribute('autoplay');
-  
-  // Remove event listeners antigos clonando o elemento
-  const newSoftclickVideo = softclickVideo.cloneNode(true);
-  if (softclickVideo.parentNode) {
-    softclickVideo.parentNode.replaceChild(newSoftclickVideo, softclickVideo);
   }
-}
+});

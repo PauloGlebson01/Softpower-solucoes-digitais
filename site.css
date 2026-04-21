@@ -3,7 +3,6 @@
    Dark + Light | Premium UI
 ============================= */
 
-/* ================= VARIÁVEIS ================= */
 :root{
   --bg:#0d0f15;
   --card:#151823;
@@ -22,7 +21,6 @@ body.light{
   --border:rgba(0,0,0,.08);
 }
 
-/* ================= RESET ================= */
 *{
   margin:0;
   padding:0;
@@ -39,7 +37,7 @@ body{
   transition:background .3s,color .3s;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 .top-header{
   position:fixed;
   top:0;
@@ -66,7 +64,7 @@ body.light .top-header{
 
 .logo span{color:var(--primary)}
 
-/* ================= BOTÕES FIXOS ================= */
+/* BOTÕES FIXOS */
 .menu-toggle,
 .theme-toggle{
   position:fixed;
@@ -93,7 +91,7 @@ body.light .top-header{
   transform:scale(1.05);
 }
 
-/* ================= SIDEBAR ================= */
+/* SIDEBAR */
 .sidebar{
   position:fixed;
   top:0;
@@ -144,7 +142,7 @@ body.light .top-header{
   color:#fff;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   min-height:100vh;
   padding:140px 8% 100px;
@@ -174,7 +172,7 @@ body.light .top-header{
   color:var(--muted);
 }
 
-/* ================= BOTÕES ================= */
+/* BOTÕES */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -187,7 +185,7 @@ body.light .top-header{
   text-decoration:none;
   box-shadow:0 20px 40px rgba(79,70,229,.45);
   transition:.3s;
-  margin-top: 10px;
+  margin-top:10px;
 }
 
 .btn:hover{
@@ -200,7 +198,7 @@ body.light .top-header{
   font-size:.9rem;
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 section{
   padding:100px 8%;
   text-align:center;
@@ -217,22 +215,18 @@ section p{
   color:var(--muted);
 }
 
-/* ================= SUPORTE TÉCNICO ================= */
-
-/* Wrapper do card de suporte */
+/* SUPORTE TÉCNICO */
 .support-wrapper{
   display:flex;
   flex-direction:column;
   align-items:center;
 }
 
-/* Garante alinhamento interno do card */
 .service-card.suporte{
   display:flex;
   flex-direction:column;
 }
 
-/* Área dos botões */
 .service-card.suporte .card-actions{
   margin-top:auto;
   display:flex;
@@ -240,7 +234,6 @@ section p{
   gap:12px;
 }
 
-/* Botão outline (Tirar Dúvidas) */
 .btn-outline{
   background:transparent;
   border:1px solid var(--primary);
@@ -253,7 +246,6 @@ section p{
   color:#fff;
 }
 
-/* Texto abaixo do card de suporte */
 .support-note{
   margin-top:18px;
   font-size:.85rem;
@@ -264,14 +256,13 @@ section p{
   opacity:.9;
 }
 
-/* Ajuste mobile */
 @media(max-width:768px){
   .support-note{
     max-width:320px;
   }
 }
 
-/* ================= GRID ================= */
+/* GRID */
 .grid{
   margin-top:50px;
   display:grid;
@@ -279,7 +270,7 @@ section p{
   gap:30px;
 }
 
-/* ================= CARDS ================= */
+/* CARDS */
 .card,
 .servico{
   background:var(--card);
@@ -301,10 +292,7 @@ section p{
   margin-bottom:16px;
 }
 
-/* ===================================== */
-/* CARD PRINCIPAL - PADRÃO INTEGRADO     */
-/* ===================================== */
-
+/* CARD PRINCIPAL */
 .principal-estetica{
   position:relative;
   background:var(--card);
@@ -314,7 +302,6 @@ section p{
   transition:.35s;
 }
 
-/* Glow elegante usando variáveis */
 .principal-estetica:hover{
   transform:translateY(-8px);
   box-shadow:
@@ -322,7 +309,6 @@ section p{
     0 0 35px rgba(0,255,213,.25);
 }
 
-/* Badge */
 .badge-principal{
   display:inline-block;
   background:linear-gradient(135deg,var(--primary),#6366f1);
@@ -335,7 +321,6 @@ section p{
   letter-spacing:1px;
 }
 
-/* Título */
 .principal-estetica .card-title{
   font-size:22px;
   font-weight:700;
@@ -351,7 +336,6 @@ section p{
   margin-top:4px;
 }
 
-/* Descrição */
 .destaque-desc{
   font-size:14px;
   margin-bottom:20px;
@@ -359,7 +343,6 @@ section p{
   color:var(--muted);
 }
 
-/* Lista */
 .feature-list{
   font-size:14px;
   line-height:1.7;
@@ -367,7 +350,6 @@ section p{
   color:var(--text);
 }
 
-/* Preço integrado ao sistema */
 .price-box{
   margin-bottom:20px;
 }
@@ -386,7 +368,6 @@ section p{
   color:var(--accent);
 }
 
-/* Botão principal padrão SoftPower */
 .principal-estetica .btn-glow{
   display:inline-flex;
   align-items:center;
@@ -406,26 +387,25 @@ section p{
   box-shadow:0 25px 60px rgba(79,70,229,.6);
 }
 
-.btn-afiliado {
-    display: block;
-    background: linear-gradient(135deg, #00c853, #00e676);
-    color: #fff;
-    font-weight: 600;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    text-align: center;
-    margin-top: 10px;
-    transition: 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 200, 83, 0.3);
+.btn-afiliado{
+  display:block;
+  background:linear-gradient(135deg,#00c853,#00e676);
+  color:#fff;
+  font-weight:600;
+  padding:12px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  text-align:center;
+  margin-top:10px;
+  transition:0.3s ease;
+  box-shadow:0 5px 15px rgba(0,200,83,0.3);
 }
 
-.btn-afiliado:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 200, 83, 0.5);
+.btn-afiliado:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,200,83,0.5);
 }
 
-/* Nota inferior */
 .card-footer-note{
   margin-top:18px;
   font-size:12px;
@@ -434,17 +414,16 @@ section p{
   opacity:.8;
 }
 
-/* MOBILE */
 @media(max-width:768px){
   .principal-estetica{
     padding:25px 18px;
   }
-
   .principal-estetica .card-title{
     font-size:18px;
   }
 }
-/* ================= SERVIÇOS ================= */
+
+/* SERVIÇOS */
 .service-card h3{
   font-size:1.2rem;
   margin:10px 0;
@@ -476,7 +455,7 @@ section p{
     0 0 25px rgba(0,255,213,.35);
 }
 
-/* ================= CARROSSEL DE VÍDEOS ================= */
+/* CARROSSEL DE VÍDEOS */
 .video-carousel{
   padding:100px 8%;
 }
@@ -528,7 +507,6 @@ section p{
   text-align:center;
 }
 
-/* Botões do carrossel */
 .carousel-btn{
   position:absolute;
   top:50%;
@@ -555,24 +533,22 @@ section p{
 .carousel-btn.prev{left:10px}
 .carousel-btn.next{right:10px}
 
-/* =====================================
-   CAPA MATERIAIS EDUCATIVOS
-===================================== */
-.destaque-materiais img {
-  width: 300px;
-  height: auto;
-  display: block;
-  margin: 0 auto 25px;
-  border-radius: 18px;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-  transition: 0.3s ease;
+/* MATERIAIS EDUCATIVOS */
+.destaque-materiais img{
+  width:300px;
+  height:auto;
+  display:block;
+  margin:0 auto 25px;
+  border-radius:18px;
+  box-shadow:0 12px 25px rgba(0,0,0,0.12);
+  transition:0.3s ease;
 }
 
-.destaque-materiais:hover img {
-  transform: scale(1.05);
+.destaque-materiais:hover img{
+  transform:scale(1.05);
 }
 
-/* ================= CONTACT ================= */
+/* CONTACT */
 .contact{
   background:linear-gradient(135deg,#111827,#0d0f15);
 }
@@ -581,7 +557,7 @@ body.light .contact{
   background:linear-gradient(135deg,#e5e7eb,#f9fafb);
 }
 
-/* ================= FOOTER PROFISSIONAL ================= */
+/* FOOTER */
 .footer-pro{
   margin-top:60px;
   padding:40px 8% 25px;
@@ -597,7 +573,7 @@ body.light .contact{
 }
 
 .footer-box h4{
-  font-size: 1rem;
+  font-size:1rem;
   font-weight:600;
   margin-bottom:10px;
   color:var(--primary);
@@ -606,7 +582,7 @@ body.light .contact{
 .footer-box a,
 .footer-box span{
   display:block;
-  font-size: 1rem;
+  font-size:1rem;
   color:var(--muted);
   text-decoration:none;
   margin-bottom:6px;
@@ -618,20 +594,20 @@ body.light .contact{
 }
 
 .footer-copy{
-  font-size: 1rem;
+  font-size:1rem;
   color:var(--muted);
   opacity:.8;
   line-height:1.4;
 }
 
-/* ================= RESPONSIVO ================= */
+/* RESPONSIVO */
 @media(max-width:768px){
   .hero-text h1{font-size:2.2rem}
   section{padding:80px 6%}
   .video-card{min-width:260px}
 }
 
-/* ================= PREÇO CORTADO ================= */
+/* PREÇO CORTADO */
 .price-old{
   display:block;
   font-size:1rem;
@@ -655,33 +631,33 @@ body.light .contact{
   100%{transform:scale(1)}
 }
 
-.price {
-  display: block;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
+.price{
+  display:block;
+  text-align:center;
+  font-size:1.5rem;
+  font-weight:600;
 }
 
-.price-from {
-  display: block;
-  font-size: 0.75rem;
-  opacity: 0.65;
-  margin-bottom: 4px;
-  font-weight: 400;
+.price-from{
+  display:block;
+  font-size:0.75rem;
+  opacity:0.65;
+  margin-bottom:4px;
+  font-weight:400;
 }
 
-/* ================= CORREÇÕES PARA VÍDEO NO MOBILE ================= */
-video {
-  pointer-events: auto !important;
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
+/* CORREÇÃO VÍDEOS MOBILE */
+video{
+  pointer-events:auto !important;
+  -webkit-tap-highlight-color:transparent;
+  cursor:pointer;
 }
 
-.video-card {
-  pointer-events: auto !important;
+.video-card{
+  pointer-events:auto !important;
 }
 
-.carousel-btn {
-  pointer-events: auto !important;
-  z-index: 20;
+.carousel-btn{
+  pointer-events:auto !important;
+  z-index:20;
 }
