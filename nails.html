@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>SOFTCLICK | Gestão e Agenda Inteligente.</title>
   <link rel="stylesheet" href="nails.css">
   <link rel="shortcut icon" href="./assets/LOGO-SOFT.png" type="image/x-icon">
@@ -28,7 +28,7 @@
     </div>
   </header>
 
-  <!-- SEÇÃO VÍDEO - VERSÃO CORRIGIDA DEFINITIVA -->
+  <!-- SEÇÃO VÍDEO - CORRIGIDA -->
   <section class="video-section">
     <div class="container">
       <h2 class="section-title">Veja o Sistema em Funcionamento</h2>
@@ -39,23 +39,17 @@
       <div class="video-wrapper">
         <div class="video-glow"></div>
         <div class="video-frame">
-          <!-- Botão de play customizado para mobile -->
-          <div class="video-container" id="videoContainer">
-            <div class="video-play-overlay" id="videoPlayOverlay">
-              <div class="play-button">▶</div>
-              <p>Toque para reproduzir</p>
-            </div>
-            <video 
-              id="demoVideo"
-              poster="./assets/softclick-agenda.png" 
-              playsinline
-              webkit-playsinline="true"
-              preload="metadata"
-              style="width:100%; height:auto; border-radius:15px; display:none;">
-              <source src="./portfolio/SOFTCLICK-STUDIO-Gestão-e-Agenda-Inteligente.mp4" type="video/mp4">
-              Seu navegador não suporta vídeos HTML5.
-            </video>
-          </div>
+          <video 
+            id="demoVideo"
+            controls 
+            poster="./assets/softclick-agenda.png" 
+            playsinline
+            webkit-playsinline="true"
+            preload="metadata"
+            style="width:100%; height:auto; border-radius:15px; cursor:pointer;">
+            <source src="./portfolio/SOFTCLICK-STUDIO-Gestão-e-Agenda-Inteligente.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+          </video>
         </div>
       </div>
     </div>
@@ -260,60 +254,43 @@
   </footer>
 
   <script>
+    // Aguarda o DOM estar completamente carregado
     document.addEventListener('DOMContentLoaded', function() {
       
-      // ========== SOLUÇÃO DEFINITIVA PARA VÍDEO NO MOBILE ==========
-      const videoContainer = document.getElementById('videoContainer');
-      const videoPlayOverlay = document.getElementById('videoPlayOverlay');
+      // ========== CORREÇÃO PRINCIPAL PARA VÍDEO NO MOBILE ==========
       const video = document.getElementById('demoVideo');
       
-      if (video && videoContainer && videoPlayOverlay) {
+      if (video) {
+        // Garante atributos para mobile
+        video.setAttribute('playsinline', 'true');
+        video.setAttribute('webkit-playsinline', 'true');
         
-        // Função para iniciar o vídeo
-        function iniciarVideo() {
-          // Esconde o overlay
-          videoPlayOverlay.style.display = 'none';
-          // Mostra o vídeo
-          video.style.display = 'block';
-          
-          // Tenta reproduzir
-          var playPromise = video.play();
-          
-          if (playPromise !== undefined) {
-            playPromise.then(function() {
-              console.log('Vídeo reproduzindo');
-            }).catch(function(error) {
-              console.log('Erro ao reproduzir:', error);
-              // Se falhar, mostra mensagem e mantém o overlay
-              videoPlayOverlay.style.display = 'flex';
-              video.style.display = 'none';
-              alert('Toque novamente para reproduzir o vídeo');
-            });
-          }
+        // Remove qualquer overlay que possa bloquear cliques
+        const videoFrame = video.closest('.video-frame');
+        if (videoFrame) {
+          videoFrame.style.pointerEvents = 'auto';
         }
         
-        // Evento de clique no overlay
-        videoPlayOverlay.addEventListener('click', iniciarVideo);
+        // Força o carregamento
+        video.load();
         
-        // Evento de toque para mobile
-        videoPlayOverlay.addEventListener('touchstart', function(e) {
-          e.preventDefault();
-          iniciarVideo();
-        });
-        
-        // Quando o vídeo terminar, mostra o overlay novamente
-        video.addEventListener('ended', function() {
-          video.style.display = 'none';
-          videoPlayOverlay.style.display = 'flex';
-          video.currentTime = 0;
-        });
-        
-        // Se o usuário pausar manualmente, mostra overlay
-        video.addEventListener('pause', function() {
-          if (!video.ended) {
-            video.style.display = 'none';
-            videoPlayOverlay.style.display = 'flex';
+        // CORREÇÃO PRINCIPAL: Garante que o play funciona no toque
+        video.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (video.paused) {
+            video.play().catch(error => {
+              console.log('Erro ao tentar reproduzir:', error);
+              // Fallback: mostra mensagem amigável
+              alert('Toque novamente para reproduzir o vídeo');
+            });
+          } else {
+            video.pause();
           }
+        });
+        
+        // Trata erro de fonte
+        video.addEventListener('error', function(e) {
+          console.warn('Erro no vídeo:', video.error);
         });
       }
       
@@ -334,7 +311,7 @@
         }
       });
 
-      // ========== INTERSECTION OBSERVER ==========
+      // ========== INTERSECTION OBSERVER (ANIMAÇÃO SCROLL) ==========
       const elements = document.querySelectorAll(".card, .plano, .video-frame");
       
       const observer = new IntersectionObserver(entries => {

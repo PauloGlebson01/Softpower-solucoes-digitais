@@ -670,57 +670,7 @@ body.light .contact{
   font-weight: 400;
 }
 
-/* =====================================
-   OVERLAY PARA VÍDEOS DO CARROSSEL - MOBILE
-===================================== */
-.video-container-mobile {
-    position: relative;
-    width: 100%;
-    border-radius: 14px;
-    overflow: hidden;
-    cursor: pointer;
-    aspect-ratio: 16/9;
-    background: #000;
-}
 
-.video-play-overlay-mobile {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-}
 
-.play-button-mobile {
-    width: 60px;
-    height: 60px;
-    background: rgba(79, 70, 229, 0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    color: white;
-    transition: transform 0.3s ease;
-    box-shadow: 0 0 15px rgba(79, 70, 229, 0.5);
-}
 
-.video-play-overlay-mobile:hover .play-button-mobile {
-    transform: scale(1.1);
-}
 
-.video-container-mobile video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.video-card {
-    cursor: pointer;
-}
