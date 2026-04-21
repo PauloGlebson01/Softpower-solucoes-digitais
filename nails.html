@@ -30,27 +30,28 @@
 
   <!-- SEÇÃO VÍDEO -->
   <section class="video-section">
-    <div class="container">
+  <div class="container">
+    <h2 class="section-title">Veja o Sistema em Funcionamento</h2>
+    <p class="video-subtitle">
+      Simples, moderno e profissional. Seu NEGÓCIO com outro nível de tecnologia.
+    </p>
 
-      <h2 class="section-title">Veja o Sistema em Funcionamento</h2>
-      <p class="video-subtitle">
-        Simples, moderno e profissional. Seu NEGÓCIO com outro nível de tecnologia.
-      </p>
-
-      <div class="video-wrapper">
-
-        <div class="video-glow"></div>
-
-        <div class="video-frame">
-
-          <video controls poster="./assets/softclick-agenda.png">
-            <source src="./portfolio/SOFTCLICK-STUDIO-Gestão-e-Agenda-Inteligente.mp4" type="video/mp4">
-          </video>
-
-        </div>
+    <div class="video-wrapper">
+      <div class="video-glow"></div>
+      <div class="video-frame">
+        <video 
+          id="demoVideo"
+          controls 
+          poster="./assets/softclick-agenda.png" 
+          playsinline
+          preload="metadata">
+          <source src="./portfolio/SOFTCLICK-STUDIO-Gestão-e-Agenda-Inteligente.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos HTML5.
+        </video>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- BENEFÍCIOS -->
   <section class="beneficios">
@@ -252,29 +253,77 @@
     <p>© 2026 Todos os direitos reservados | SOFTCLICK by SoftPower</p>
   </footer>
 
-  <script>
-
+<script>
+  // Aguarda o DOM estar completamente carregado
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // ========== FAQ ACCORDION ==========
     const faqItems = document.querySelectorAll(".faq-item");
-
+    
     faqItems.forEach(item => {
       const question = item.querySelector(".faq-question");
-      question.addEventListener("click", () => {
-        item.classList.toggle("active");
-      });
+      if (question) { // Verifica se existe
+        question.addEventListener("click", () => {
+          // Fecha outros itens (opcional - comportamento de accordion)
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains("active")) {
+              otherItem.classList.remove("active");
+            }
+          });
+          item.classList.toggle("active");
+        });
+      }
     });
 
+    // ========== INTERSECTION OBSERVER (ANIMAÇÃO SCROLL) ==========
     const elements = document.querySelectorAll(".card, .plano, .video-frame");
-
+    
+    // Configuração do observer com threshold mais suave
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
+          // Opcional: desobserva após mostrar para melhor performance
+          observer.unobserve(entry.target);
         }
       });
+    }, {
+      threshold: 0.1, // Mostra quando 10% do elemento está visível
+      rootMargin: "0px 0px -50px 0px" // Ajusta o ponto de ativação
+    });
+    
+    elements.forEach(el => {
+      if (el) observer.observe(el);
     });
 
-    elements.forEach(el => observer.observe(el));
-  </script>
+    // ========== CORREÇÃO PARA VÍDEO NO MOBILE ==========
+    const video = document.querySelector('.video-frame video');
+    if (video) {
+      // Adiciona atributo playsinline dinamicamente
+      video.setAttribute('playsinline', '');
+      
+      // Força carregamento dos metadados
+      video.load();
+      
+      // Tratamento de erro
+      video.addEventListener('error', function(e) {
+        console.warn('Erro no vídeo:', video.error);
+        // Tenta recarregar se for erro de fonte
+        if (video.error && video.error.code === 4) {
+          const source = video.querySelector('source');
+          if (source) {
+            video.load();
+          }
+        }
+      });
+      
+      // Log para debug (remove em produção)
+      video.addEventListener('canplay', () => {
+        console.log('✅ Vídeo carregado e pronto para tocar');
+      });
+    }
+  });
+</script>
 
 </body>
 

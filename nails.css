@@ -9,6 +9,7 @@ body{
   background:#0d0f15;
   color:#fff;
   overflow-x:hidden;
+  -webkit-overflow-scrolling:touch; /* CORREÇÃO */
 }
 
 .container{
@@ -126,6 +127,7 @@ body{
   opacity:0;
   transform:translateY(40px);
   transition:0.6s ease;
+  -webkit-tap-highlight-color:transparent; /* CORREÇÃO */
 }
 
 .video-frame.show{
@@ -159,6 +161,7 @@ body{
   z-index:1;
   animation:glowMove 6s linear infinite;
   border-radius:30px;
+  pointer-events:none; /* CORREÇÃO - não interfere no clique do vídeo */
 }
 
 @keyframes glowMove{
