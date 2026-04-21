@@ -670,7 +670,26 @@ body.light .contact{
   font-weight: 400;
 }
 
+/* =====================================
+   CORREÇÃO PARA VÍDEOS NO MOBILE - CARROSSEL
+===================================== */
+.video-card video {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    background-color: #000;
+    display: block;
+}
 
+.video-card {
+    cursor: pointer;
+}
 
-
-
+/* Garante que os vídeos sejam clicáveis */
+video {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}

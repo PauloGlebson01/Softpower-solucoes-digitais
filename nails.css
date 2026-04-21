@@ -537,3 +537,30 @@ footer{
   margin: 0 auto 16px;
   width: fit-content;
 }
+
+/* =====================================
+   CORREÇÃO PARA VÍDEO NO MOBILE
+===================================== */
+.video-frame video,
+.video-card video {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.video-frame {
+    pointer-events: auto;
+}
+
+.video-glow {
+    pointer-events: none;
+}
+
+/* Garante que o vídeo seja clicável em dispositivos touch */
+video {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
