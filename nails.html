@@ -42,10 +42,10 @@
           <video 
             id="demoVideo"
             controls 
-            poster="./assets/softclick-agenda.png" 
             playsinline
             webkit-playsinline="true"
             preload="metadata"
+            poster="./assets/softclick-agenda.png"
             style="width:100%; height:auto; border-radius:15px; cursor:pointer;">
             <source src="./portfolio/SOFTCLICK-STUDIO-Gestão-e-Agenda-Inteligente.mp4" type="video/mp4">
             Seu navegador não suporta vídeos HTML5.
@@ -155,7 +155,7 @@
         <div class="faq-item">
           <button class="faq-question">
             O que é o SOFTCLICK?
-            <span>+</span>
+            <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
@@ -168,7 +168,7 @@
         <div class="faq-item">
           <button class="faq-question">
             Preciso instalar algum aplicativo?
-            <span>+</span>
+            <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
@@ -180,7 +180,7 @@
         <div class="faq-item">
           <button class="faq-question">
             O agendamento funciona 24 horas?
-            <span>+</span>
+            <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
@@ -192,7 +192,7 @@
         <div class="faq-item">
           <button class="faq-question">
             Consigo confirmar e gerenciar os agendamentos?
-            <span>+</span>
+            <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
@@ -205,7 +205,7 @@
         <div class="faq-item">
           <button class="faq-question">
             Posso exportar os agendamentos?
-            <span>+</span>
+            <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
@@ -217,7 +217,7 @@
         <div class="faq-item">
           <button class="faq-question">
             O suporte está incluso?
-            <span>+</span>
+            <span class="icon">+</span>
           </button>
           <div class="faq-answer">
             <p>
@@ -264,6 +264,11 @@
         // Garante atributos para mobile
         video.setAttribute('playsinline', 'true');
         video.setAttribute('webkit-playsinline', 'true');
+        video.controls = true;
+        
+        // Garante que o elemento seja clicável
+        video.style.pointerEvents = 'auto';
+        video.style.cursor = 'pointer';
         
         // Remove qualquer overlay que possa bloquear cliques
         const videoFrame = video.closest('.video-frame');
@@ -274,21 +279,7 @@
         // Força o carregamento
         video.load();
         
-        // CORREÇÃO PRINCIPAL: Garante que o play funciona no toque
-        video.addEventListener('click', function(e) {
-          e.stopPropagation();
-          if (video.paused) {
-            video.play().catch(error => {
-              console.log('Erro ao tentar reproduzir:', error);
-              // Fallback: mostra mensagem amigável
-              alert('Toque novamente para reproduzir o vídeo');
-            });
-          } else {
-            video.pause();
-          }
-        });
-        
-        // Trata erro de fonte
+        // Apenas loga erros - não interfere no comportamento nativo
         video.addEventListener('error', function(e) {
           console.warn('Erro no vídeo:', video.error);
         });

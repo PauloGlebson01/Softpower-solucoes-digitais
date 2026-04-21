@@ -9,7 +9,7 @@ body{
   background:#0d0f15;
   color:#fff;
   overflow-x:hidden;
-  -webkit-overflow-scrolling:touch; /* CORREÇÃO */
+  -webkit-overflow-scrolling:touch;
 }
 
 .container{
@@ -127,7 +127,7 @@ body{
   opacity:0;
   transform:translateY(40px);
   transition:0.6s ease;
-  -webkit-tap-highlight-color:transparent; /* CORREÇÃO */
+  -webkit-tap-highlight-color:transparent;
 }
 
 .video-frame.show{
@@ -140,9 +140,9 @@ body{
 .video-frame img{
   width:100%;
   height:auto;
-  max-height:420px; /* ligeiramente maior para melhor visual */
+  max-height:420px;
   aspect-ratio:16/9;
-  object-fit:contain; /* NÃO corta nada */
+  object-fit:contain;
   background:#0b0f1a;
   border-radius:15px;
   display:block;
@@ -161,7 +161,7 @@ body{
   z-index:1;
   animation:glowMove 6s linear infinite;
   border-radius:30px;
-  pointer-events:none; /* CORREÇÃO - não interfere no clique do vídeo */
+  pointer-events:none;
 }
 
 @keyframes glowMove{
@@ -538,3 +538,17 @@ footer{
   width: fit-content;
 }
 
+/* CORREÇÃO PARA VÍDEO NO MOBILE */
+video {
+  pointer-events: auto !important;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.video-frame {
+  pointer-events: auto !important;
+}
+
+.video-glow {
+  pointer-events: none !important;
+}

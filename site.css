@@ -559,10 +559,10 @@ section p{
    CAPA MATERIAIS EDUCATIVOS
 ===================================== */
 .destaque-materiais img {
-  width: 300px;          /* tamanho padrão */
-  height: auto;          /* mantém proporção */
+  width: 300px;
+  height: auto;
   display: block;
-  margin: 0 auto 25px;   /* centralizada */
+  margin: 0 auto 25px;
   border-radius: 18px;
   box-shadow: 0 12px 25px rgba(0,0,0,0.12);
   transition: 0.3s ease;
@@ -670,7 +670,18 @@ body.light .contact{
   font-weight: 400;
 }
 
+/* ================= CORREÇÕES PARA VÍDEO NO MOBILE ================= */
+video {
+  pointer-events: auto !important;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
 
+.video-card {
+  pointer-events: auto !important;
+}
 
-
-
+.carousel-btn {
+  pointer-events: auto !important;
+  z-index: 20;
+}
