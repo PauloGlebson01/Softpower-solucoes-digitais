@@ -321,7 +321,7 @@
     </div>
   </section>
 
-  <!-- CARROSSEL DE VÍDEOS - CORRIGIDO -->
+  <!-- CARROSSEL DE VÍDEOS - VERSÃO CORRIGIDA DEFINITIVA -->
   <section id="videos" class="video-carousel reveal">
     <h2>Nossos Trabalhos</h2>
     <p class="subtitle">Alguns projetos desenvolvidos</p>
@@ -334,48 +334,60 @@
 
       <div class="carousel-track">
 
-        <!-- VIDEO 1 - CORRIGIDO -->
+        <!-- VIDEO 1 -->
         <div class="video-card">
-          <video 
-            controls 
-            muted 
-            playsinline
-            webkit-playsinline="true"
-            preload="metadata" 
-            poster="./assets/softclick-agenda.png"
-            style="cursor:pointer;">
-            <source src="./portfolio/SOFTCLICK-STUDIO-Gestão-e-Agenda-Inteligente.mp4" type="video/mp4">
-          </video>
+          <div class="video-container-mobile" data-video="video1">
+            <div class="video-play-overlay-mobile">
+              <div class="play-button-mobile">▶</div>
+            </div>
+            <video 
+              id="video1"
+              poster="./assets/softclick-agenda.png" 
+              playsinline
+              webkit-playsinline="true"
+              preload="metadata"
+              style="display:none;">
+              <source src="./portfolio/SOFTCLICK-STUDIO-Gestão-e-Agenda-Inteligente.mp4" type="video/mp4">
+            </video>
+          </div>
           <span>SOFTCLICK <br>Gestão e Agenda Inteligente.</span>
         </div>
 
-        <!-- VIDEO 2 - CORRIGIDO -->
+        <!-- VIDEO 2 -->
         <div class="video-card">
-          <video 
-            controls 
-            muted 
-            playsinline
-            webkit-playsinline="true"
-            preload="metadata" 
-            poster="./portfolio/cyblane-capa.png"
-            style="cursor:pointer;">
-            <source src="./portfolio/Cyblanne-Ramalho-Kit-Mídia.mp4" type="video/mp4">
-          </video>
+          <div class="video-container-mobile" data-video="video2">
+            <div class="video-play-overlay-mobile">
+              <div class="play-button-mobile">▶</div>
+            </div>
+            <video 
+              id="video2"
+              poster="./portfolio/cyblane-capa.png" 
+              playsinline
+              webkit-playsinline="true"
+              preload="metadata"
+              style="display:none;">
+              <source src="./portfolio/Cyblanne-Ramalho-Kit-Mídia.mp4" type="video/mp4">
+            </video>
+          </div>
           <span>Kit Mídia Personalizado</span>
         </div>
 
-        <!-- VIDEO 3 - CORRIGIDO -->
+        <!-- VIDEO 3 -->
         <div class="video-card">
-          <video 
-            controls 
-            muted 
-            playsinline
-            webkit-playsinline="true"
-            preload="metadata" 
-            poster="./portfolio/nay-storymaker-capa.png"
-            style="cursor:pointer;">
-            <source src="./portfolio/Nay-Storymaker-Landing-page.mp4" type="video/mp4">
-          </video>
+          <div class="video-container-mobile" data-video="video3">
+            <div class="video-play-overlay-mobile">
+              <div class="play-button-mobile">▶</div>
+            </div>
+            <video 
+              id="video3"
+              poster="./portfolio/nay-storymaker-capa.png" 
+              playsinline
+              webkit-playsinline="true"
+              preload="metadata"
+              style="display:none;">
+              <source src="./portfolio/Nay-Storymaker-Landing-page.mp4" type="video/mp4">
+            </video>
+          </div>
           <span>Landing Page Profissional</span>
         </div>
 
